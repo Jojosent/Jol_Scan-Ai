@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}{{ t('nav_profile') }}{% endblock %}
+{% block content %}
+<section class="panel account-card profile-card">
+  <div class="profile-intro">
+    {% if g.user.avatar %}<img class="profile-avatar" src="/profile/avatar" alt="{{ tr('Аватар') }}">
+    {% else %}<span class="profile-avatar avatar-placeholder">{{ (g.user.first_name or g.user.email)[0]|upper }}</span>{% endif %}
+    <div><h1>{{ t('nav_profile') }}<span class="yellow">.</span></h1><p>{{ g.user.email }}</p></div>
+  </div>
+  <p>{{ tr('Барлық өрістерді қалауыңыз бойынша толтырыңыз.') }}</p>
+  {% if error %}<p class="form-error" role="alert">{{ tr(error) }}</p>{% endif %}
+  {% if updated %}<p class="green" role="status">{{ tr('Профиль сақталды.') }}</p>{% endif %}
+  <form method="post" enctype="multipart/form-data" class="account-form">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+    <div class="profile-fields">
+      <label>{{ tr('Аты') }}<input name="first_name" maxlength="80" autocomplete="given-name" value="{{ g.user.first_name }}"></label>
+      <label>{{ tr('Тегі') }}<input name="last_name" maxlength="80" autocomplete="family-name" value="{{ g.user.last_name }}"></label>
+      <label>{{ tr('Туған күні') }}<input name="birth_date" type="date" autocomplete="bday" value="{{ g.user.birth_date or '' }}"></label>
+      <label>{{ tr('Телефон нөмірі') }}<input name="phone" type="tel" maxlength="32" autocomplete="tel" value="{{ g.user.phone }}"></label>
+    </div>
+    <label>{{ tr('Өзіңіз туралы') }}<textarea name="bio" rows="4" maxlength="500">{{ g.user.bio }}</textarea></label>
+    <label>{{ tr('Аватар') }}<input name="avatar" type="file" accept="image/jpeg,image/png,image/webp"><small>JPG, PNG, WebP · 2 MB</small></label>
+    {% if g.user.avatar %}<label class="profile-check"><input name="remove_avatar" type="checkbox">{{ tr('Аватарды өшіру') }}</label>{% endif %}
+    <div class="button-group"><button class="button primary">{{ tr('Сақтау') }}</button><a class="button secondary" href="/analyze">{{ t('nav_analyze') }}</a></div>
+  </form>
+  <form action="/logout" method="post"><input type="hidden" name="csrf_token" value="{{ csrf_token }}"><button class="button secondary">{{ tr('Шығу') }}</button></form>
+</section>
+{% endblock %}

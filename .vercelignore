@@ -1,0 +1,13 @@
+.env
+.env.*
+.venv/
+venv/
+uploads/
+instance/
+tmp/
+output/
+docs/
+tests/
+**/__pycache__/
+**/.pytest_cache/
+*.db

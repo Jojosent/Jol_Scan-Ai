@@ -1,0 +1,3 @@
+{% extends 'base.html' %}
+{% block title %}{{ tr("Қате") }}{% endblock %}
+{% block content %}<div class="error-page"><span class="eyebrow">{{ code }}</span><h1>{{ tr('Бет табылмады' if code==404 else 'Сұрау орындалмады') }}</h1><p>{{ tr("Сілтемені тексеріңіз немесе басты бетке оралыңыз.") }}</p><a href="/" class="button primary">{{ tr("Басты бетке өту") }} {{ icon('arrow',18) }}</a></div>{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}{{ t('nav_demo') }}{% endblock %}
+{% block content %}
+<section class="page-heading"><div><div class="eyebrow">JOLSCAN AI · LIVE WALKTHROUGH</div><h1>{{ tr('Бір фото қалай шешімге айналады?') }}</h1><p>{{ tr('Қазылар алқасына арналған интерактивті көрсетілім. Барлық дерек үлгі ретінде берілген.') }}</p></div><span class="demo-badge">{{ tr('ДЕМО') }}</span></section>
+<section class="panel demo-stage" id="demo-stage">
+  <div class="demo-steps" aria-label="{{ tr('Көрсетілім қадамдары') }}">
+    {% for label in ['Фото', 'Талдау', 'Карта', 'Жөндеу'] %}<button class="result-tab{% if loop.first %} active{% endif %}" type="button" data-demo-step="{{ loop.index0 }}" aria-pressed="{{ 'true' if loop.first else 'false' }}">0{{ loop.index }} · {{ tr(label) }}</button>{% endfor %}
+  </div>
+  <div class="demo-grid">
+    <div class="demo-art">
+      <img src="{{ url_for('static', filename='img/presets/bridge.png') }}" alt="{{ tr('Жол ақауының фотосы') }}">
+      <svg class="demo-outline" viewBox="0 0 800 533" aria-hidden="true" hidden><polygon points="245,392 284,364 354,359 475,328 578,308 619,321 582,340 467,363 363,390 286,404" fill="#f64b6540" stroke="#f64b65" stroke-width="4"/></svg>
+      <div class="demo-map" hidden>
+        <svg viewBox="0 0 480 340" role="img" aria-label="{{ tr('Ақау белгіленген орын') }}">
+          <rect width="480" height="340" fill="#202b35"/>
+          <path d="M-15 266 C125 296 145 106 250 149 S404 219 500 68" fill="none" stroke="#385b71" stroke-width="45"/>
+          <path d="M30 0v340M108 0v340M203 0v340M296 0v340M400 0v340M0 47h480M0 111h480M0 214h480M0 289h480M0 335 480 3M40 0 480 270" fill="none" stroke="#56616b" stroke-width="4" opacity=".65"/>
+          <path d="M256 106a21 21 0 0 1 21 21c0 15-21 37-21 37s-21-22-21-37a21 21 0 0 1 21-21Z" fill="#ffc400"/>
+          <circle cx="256" cy="128" r="7" fill="#202b35"/>
+        </svg>
+        <span class="demo-map-label">51.1694° N · 71.4491° E</span>
+      </div>
+      <div class="demo-repair" hidden>
+        <span class="eyebrow">{{ tr('ЖӨНДЕУ БАСЫМДЫҒЫ') }}</span>
+        <strong>JS-001</strong>
+        <span class="severity-badge severity-HIGH">{{ tr('Жоғары қауіп') }}</span>
+        <div class="demo-status-flow"><span>{{ tr('Жаңа') }}</span><span>→</span><span>{{ tr('Жөнделуде') }}</span><span>→</span><span class="green">✓ {{ tr('Жөнделді') }}</span></div>
+      </div>
+      <span class="demo-art-label">{{ tr('ФОТО КЕЙС') }}</span>
+    </div>
+    <div class="demo-narration" aria-live="polite">
+      {% for heading, description, detail in [
+        ('Жолды суретке түсіріңіз', 'Тұрғын жол ақауын көріп, бір сурет жүктейді.', 'Сервер анықталған беттерді бұлыңғырлайды және EXIF деректерін жояды.'),
+        ('Gemini ақаудың контурын белгілейді', 'Жарық пен көлеңке арасынан көрінетін ақаудың шекарасы анықталады.', 'JSON жауабы тексеріледі. Кадрдағы контур ауданы қауіп бағасына айналады.'),
+        ('Орынды картадан белгілеңіз', 'Тұрғын ақаудың орнын растайды. Жол қызметі қайда бару керегін біледі.', 'EXIF, браузер геолокациясы немесе қолмен таңдалған координаттар қолданылады.'),
+        ('Әкімші жөндеуді басқарады', 'Жол қызметі қауіп деңгейін қарап, өтінімді жұмысқа алады және жөндеу мәртебесін жаңартады.', 'SQLite өтінім мен авторды байланыстырады. Тізілім мен есептер әкімші рөліне ғана ашық.')
+      ] %}<article data-demo-panel="{{ loop.index0 }}" {% if not loop.first %}hidden{% endif %}><span class="eyebrow">0{{ loop.index }} / 04</span><h2>{{ tr(heading) }}</h2><p>{{ tr(description) }}</p><details><summary>{{ tr('Техникалық мәлімет') }}</summary><p>{{ tr(detail) }}</p></details></article>{% endfor %}
+      <button class="button primary" id="demo-next" type="button">{{ tr('Келесі қадам') }} {{ icon('arrow',18) }}</button>
+    </div>
+  </div>
+</section>
+<script src="{{ url_for('static', filename='js/demo.js') }}" defer></script>
+{% endblock %}

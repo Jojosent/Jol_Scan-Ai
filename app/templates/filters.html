@@ -1,0 +1,8 @@
+<div class="filters">
+  <label><span class="sr-only">{{ tr("Қауіп деңгейі") }}</span><select id="filter-severity"><option value="">{{ tr("Барлық қауіп деңгейі") }}</option><option value="HIGH">{{ tr("Жоғары қауіп") }}</option><option value="MEDIUM">{{ tr("Орташа қауіп") }}</option><option value="LOW">{{ tr("Төмен қауіп") }}</option><option value="NONE">{{ tr("Ақау жоқ") }}</option></select></label>
+  <label><span class="sr-only">{{ tr("Мәртебе") }}</span><select id="filter-status"><option value="">{{ tr("Барлық мәртебе") }}</option><option value="new">{{ tr("Жаңа") }}</option><option value="in_progress">{{ tr("Жөнделуде") }}</option><option value="repaired">{{ tr("Жөнделді") }}</option></select></label>
+  <label><span class="sr-only">{{ tr("Аудан") }}</span><select id="filter-district"><option value="">{{ tr("Барлық аудан") }}</option><option value="Есіл">{{ tr("Есіл") }}</option><option value="Алматы">{{ tr("Алматы") }}</option><option value="Сарыарқа">{{ tr("Сарыарқа") }}</option><option value="Байқоңыр">{{ tr("Байқоңыр") }}</option><option value="Нұра">{{ tr("Нұра") }}</option><option value="Астана шегінен тыс">{{ tr("Астана шегінен тыс") }}</option></select></label>
+  <label class="date-filter"><span>{{ tr("Бастап") }}</span><input type="date" id="filter-from" aria-label="{{ tr('Бастапқы күн') }}"></label>
+  <label class="date-filter"><span>{{ tr("Дейін") }}</span><input type="date" id="filter-to" aria-label="{{ tr('Соңғы күн') }}"></label>
+  <button class="button secondary small" id="reset-filters">{{ tr("Тазарту") }}</button>
+</div>

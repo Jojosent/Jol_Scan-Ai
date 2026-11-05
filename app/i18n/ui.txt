@@ -1,0 +1,390 @@
+Шолу|Обзор|Overview
+Жолды тексеру|Проверить дорогу|Scan a road
+Ақаулар картасы|Карта дефектов|Defect map
+Аналитика|Аналитика|Analytics
+Өтінімдер|Заявки|Reports
+Баптаулар|Настройки|Settings
+Көрсетілім|Демонстрация|Demo
+Кіру|Войти|Sign in
+Тіркелу|Регистрация|Sign up
+Профиль|Профиль|Profile
+ЖҰМЫС КЕҢІСТІГІ|РАБОЧЕЕ ПРОСТРАНСТВО|WORKSPACE
+Астана қаласы|Город Астана|Astana
+ҚАЛА|ГОРОД|CITY
+Жаңа талдау|Новый анализ|New scan
+Барлық өтінімдер|Все заявки|All reports
+Картаны ашу|Открыть карту|Open map
+Жоғары|Высокий|High
+Орташа|Средний|Medium
+Төмен|Низкий|Low
+Ақау жоқ|Дефектов нет|No defects
+Жаңа|Новая|New
+Жөнделуде|В работе|In progress
+Жөнделді|Отремонтировано|Repaired
+Сессия мерзімі аяқталды. Бетті жаңартып, қайта көріңіз.|Сессия истекла. Обновите страницу и повторите.|Your session expired. Refresh and try again.
+Файл көлемі 15 МБ-тан аспауы керек.|Файл должен быть не больше 15 МБ.|The file must be 15 MB or smaller.
+Сұралған дерек табылмады.|Запрошенные данные не найдены.|The requested data could not be found.
+Бұл әрекетке рұқсат жоқ.|Доступ к этому действию закрыт.|You do not have permission for this action.
+Серверде қате пайда болды. Кейінірек қайталаңыз.|Ошибка сервера. Повторите позже.|A server error occurred. Try again later.
+Жалғастыру үшін кіріңіз.|Войдите, чтобы продолжить.|Sign in to continue.
+Мазмұнға өту|Перейти к содержимому|Skip to content
+JolScan AI басты бет|Главная JolScan AI|JolScan AI homepage
+ЖОЛ САПАСЫН БАҚЫЛАУ|МОНИТОРИНГ СОСТОЯНИЯ ДОРОГ|ROAD CONDITION MONITORING
+Қамтылатын қала: Астана|Город: Астана|City: Astana
+Негізгі навигация|Основная навигация|Main navigation
+БІРГЕ ЖАҚСАРТАЙЫҚ|УЛУЧШАЕМ ВМЕСТЕ|IMPROVE TOGETHER
+Жақсы жол|Хорошая дорога|A better road
+сізден басталады.|начинается с вас.|starts with you.
+Ақауды хабарлау|Сообщить о дефекте|Report a defect
+Қалалық мониторинг|Городской мониторинг|City monitoring
+AI autumn · Астана|AI autumn · Астана|AI autumn · Astana
+Мәзірді ашу|Открыть меню|Open menu
+Жұмыс кеңістігі|Рабочее пространство|Workspace
+Тіл|Язык|Language
+Тақырыпты ауыстыру|Сменить тему|Switch theme
+Қауіпсіз жол. Ақылды қала.|Безопасные дороги. Умный город.|Safer roads. A smarter city.
+Gemini арқылы жасалған|На базе Gemini|Powered by Gemini
+ҚАЛА ИНФРАҚҰРЫЛЫМЫНЫҢ ЖАҢА КӨЗҚАРАСЫ|НОВЫЙ ВЗГЛЯД НА ГОРОДСКУЮ ИНФРАСТРУКТУРУ|A NEW VIEW OF CITY INFRASTRUCTURE
+Қала жолдары — назарда|Городские дороги в фокусе|City roads in focus
+Астана жолдарының жағдайын жасанды интеллектпен бақылаңыз.|Следите за состоянием дорог Астаны с помощью ИИ.|Monitor Astana's road conditions with AI.
+Gemini қосылған|Gemini подключён|Gemini connected
+Демо режимі|Демо-режим|Demo mode
+GEMINI VISION ТЕХНОЛОГИЯСЫ|ТЕХНОЛОГИЯ GEMINI VISION|GEMINI VISION TECHNOLOGY
+Әр ақауды байқаңыз.|Замечайте каждый дефект.|Spot every defect.
+Әр жолды|Делайте дороги|Make every road
+жақсартыңыз.|лучше.|better.
+Бір сурет — қауіпсіз қалаға бір қадам.|Один снимок приближает город к безопасным дорогам.|One photo brings the city closer to safer roads.
+Жол ақауларын анықтап, қауіпті бағалаңыз|Находите дефекты, оценивайте риск|Find road defects, assess their risk
+және картада белгілеңіз.|и отмечайте их на карте.|and mark them on the map.
+Картаға өту|Перейти к карте|Go to map
+Фото және бейне|Фото и видео|Photo and video
+Жеке деректер қорғалады|Защита персональных данных|Personal data protection
+Жол ақауының AI талдауын көрсететін иллюстрация|Иллюстрация анализа дорожного дефекта|Illustration of AI road defect analysis
+КӨРНЕКІ МЫСАЛ|ПРИМЕР|ILLUSTRATION
+01 · ЖОЛ АҚАУЫ|01 · ДЕФЕКТ ДОРОГИ|01 · ROAD DEFECT
+ЖОЛ АҚАУЫ|ДЕФЕКТ ДОРОГИ|ROAD DEFECT
+Көрінбейтінді байқаңыз|Замечайте то, что легко пропустить|Spot what is easy to miss
+Суреттегі ақауларды автоматты анықтау|Автоматическое обнаружение дефектов на фото|Automatic defect detection in photos
+Жалпы көрсеткіштер|Основные показатели|Key metrics
+Анықталған ақаулар|Найденные дефекты|Detected defects
+Барлық тіркелген ақаулар|Все зафиксированные дефекты|All recorded defects
+Қауіпті учаскелер|Опасные участки|High-risk locations
+Бірінші кезекте назар қажет|Требуют внимания в первую очередь|Require attention first
+Жөнделген жолдар|Отремонтированные дороги|Repaired roads
+Жөнделген өтінімдер|Завершённые заявки|Completed reports
+Белсенді өтінімдер|Активные заявки|Active reports
+Жұмысқа алынған және жаңа|Новые и в работе|New and in progress
+Көрсеткіштерде|В показателях учтено|Metrics include
+үлгілік өтінім бар. Олар нақты жол жағдайын көрсетпейді.|демонстрационных заявок. Они показывают работу системы.|demo reports. They illustrate how the system works.
+Қаланың жол пульсі|Пульс городских дорог|The city's road pulse
+Ақаулардың қала бойынша таралуы|Распределение дефектов по городу|Defect distribution across the city
+Толық карта|Полная карта|Full map
+Астана жол ақауларының картасы|Карта дорожных дефектов Астаны|Map of Astana road defects
+Карта жүктелуде…|Карта загружается…|Loading map…
+Астана, Қазақстан|Астана, Казахстан|Astana, Kazakhstan
+Бәрі қарапайым. Үш қадам.|Три простых шага.|Three simple steps.
+Қаланың сапасына сіз де үлес қосыңыз|Помогите улучшить городские дороги|Help improve the city's roads
+Фото жүктеңіз|Загрузите фото|Upload a photo
+Жолды суретке түсіріңіз немесе дайын файлды таңдаңыз.|Сфотографируйте дорогу или выберите готовый файл.|Photograph the road or choose an existing file.
+AI талдауын алыңыз|Получите анализ ИИ|Get an AI analysis
+Gemini ақауларды белгілеп, қауіп деңгейін бағалайды.|Gemini отмечает дефекты и оценивает риск.|Gemini marks defects and estimates risk.
+Картада белгілеңіз|Отметьте на карте|Mark the location
+Орнын көрсетіп, жол қызметіне арналған өтінімді сақтаңыз.|Укажите место и сохраните заявку для дорожной службы.|Set the location and save a report for road maintenance.
+ҚАДАМ|ШАГ|STEP
+GEMINI КӨМЕГІМЕН ТАЛДАУ|АНАЛИЗ С GEMINI|ANALYSIS WITH GEMINI
+Жақсы жол сізден басталады|Хорошая дорога начинается с вас|A better road starts with you
+Фото немесе қысқа бейне жүктеңіз. Қалғанын жасанды интеллектке сеніп тапсырыңыз.|Загрузите фото или короткое видео для анализа Gemini.|Upload a photo or short video for Gemini to analyze.
+Құпиялылық ескерілген|Защита данных|Privacy protection
+Gemini API кілтін қосыңыз|Подключите ключ Gemini API|Connect a Gemini API key
+Нақты талдау үшін сервердің .env файлына кілт енгізу қажет.|Для анализа добавьте ключ в файл .env на сервере.|Add a key to the server's .env file to run a scan.
+Қосу нұсқаулығы →|Как подключить →|Setup guide →
+Файлды таңдаңыз|Выберите файл|Choose a file
+15 МБ дейін|До 15 МБ|Up to 15 MB
+Сурет немесе бейне файлдарын таңдау|Выбор фото или видео|Choose photos or videos
+Жолдың суретін осында сүйреңіз|Перетащите сюда фото дороги|Drop a road photo here
+немесе файлды құрылғыңыздан таңдаңыз|или выберите файл на устройстве|or select a file from your device
+Файл таңдау|Выбрать файл|Select a file
+JPG, PNG, WebP · MP4, MOV, WebM · 30 сек дейін|JPG, PNG, WebP · MP4, MOV, WebM · до 30 сек|JPG, PNG, WebP · MP4, MOV, WebM · up to 30 sec
+Жолда жүрсіз бе?|Вы сейчас на улице?|Out on the road?
+Суретке түсіру|Сделать снимок|Take a photo
+Бейне параметрлері|Настройки видео|Video settings
+Әр N-ші кадрды талдау|Анализировать каждый N-й кадр|Analyze every Nth frame
+Ең көбі 5 кадр. Бір ақау бірнеше кадрда қайталануы мүмкін.|До 5 кадров. Один дефект может появиться на нескольких кадрах.|Up to 5 frames. A defect may appear in several frames.
+Талдауды бастау|Начать анализ|Start analysis
+Анықталған беттер Gemini-ге жіберер алдында бұлыңғырланады. EXIF деректері сақталмайды. Бет детекторы кейбір беттерді байқамауы мүмкін.|Перед отправкой в Gemini найденные лица размываются, а EXIF удаляется. Детектор может пропустить отдельные лица.|Detected faces are blurred and EXIF is removed before sending to Gemini. The detector may miss some faces.
+ЖАҚСЫ НӘТИЖЕ ҮШІН|ДЛЯ ЛУЧШЕГО РЕЗУЛЬТАТА|FOR BETTER RESULTS
+Анық фото —|Чёткое фото —|A clear photo
+дәл талдау.|точный анализ.|helps the analysis.
+Жол жабынының иллюстрациясы|Иллюстрация дорожного покрытия|Road surface illustration
+Жол жабыны анық көрінсін|Убедитесь, что покрытие хорошо видно|Keep the road surface clearly visible
+Күндіз немесе жақсы жарықта түсіріңіз|Снимайте днём или при хорошем освещении|Shoot in daylight or good lighting
+Ақауға қауіпсіз қашықтықта жақындаңыз|Снимайте дефект с безопасного расстояния|Photograph the defect from a safe distance
+Көлік жүргізіп келе жатып суретке түсірмеңіз.|Не фотографируйте за рулём.|Do not take photos while driving.
+Компьютердің веб-камерасын ашу|Открыть веб-камеру|Open webcam
+Камера браузердің рұқсатымен ғана қосылады.|Браузер запросит доступ к камере.|The browser will request camera access.
+Камерадан сурет түсіру|Снимок с камеры|Capture a photo
+Камераны жабу|Закрыть камеру|Close camera
+Алдымен жолдың анық көрінетінін тексеріңіз.|Убедитесь, что дорога хорошо видна.|Make sure the road is clearly visible.
+Gemini суретті талдап жатыр…|Gemini анализирует изображение…|Gemini is analyzing the image…
+Әдетте бірнеше секунд қажет. Бейне ұзағырақ өңделеді.|Фото обычно занимает несколько секунд. Видео обрабатывается дольше.|A photo usually takes a few seconds. Video takes longer.
+ТАЛДАУ АЯҚТАЛДЫ|АНАЛИЗ ЗАВЕРШЁН|ANALYSIS COMPLETE
+Жолдың жағдайы анықталды.|Результат анализа дороги.|Road scan results.
+Талдауға дейін / кейін|До и после анализа|Before and after analysis
+Жүгірткіні жылжытыңыз|Передвиньте ползунок|Move the slider
+Жеке деректері өңделген бастапқы сурет|Исходное фото после обработки персональных данных|Original image with privacy processing
+Ақаулары белгіленген сурет|Фото с отмеченными дефектами|Image with marked defects
+Бастапқы|Исходное фото|Original
+AI талдауы|Анализ ИИ|AI analysis
+Бастапқы сурет пен талдауды салыстыру|Сравнение исходного фото и результата|Compare the original and analyzed image
+Қауіп деңгейі суреттегі ауданға сүйенеді; тереңдік пен нақты өлшем анықталмайды. Сенімділік — модельдің өзіндік бағасы. Маскалар — Gemini ұсынған жуық контурлар.|Уровень риска основан на площади в кадре. Уверенность оценивает сама модель. Контуры приблизительны.|Risk is based on image area. Confidence is self-reported by the model. Outlines are approximate.
+Орналасқан жері|Местоположение|Location
+Картадан ақаудың орнын белгілеңіз немесе геолокацияны қосыңыз.|Отметьте место на карте или включите геолокацию.|Mark the location on the map or enable geolocation.
+Орнымды анықтау|Определить моё местоположение|Find my location
+Орналасқан жерді картадан таңдау|Выбор места на карте|Choose a location on the map
+Координаттар таңдалмады|Координаты не выбраны|No coordinates selected
+Көше / қосымша ақпарат|Улица или дополнительная информация|Street or additional information
+Мысалы, Қабанбай батыр даңғылы|Например, проспект Кабанбай батыра|For example, Kabanbay Batyr Avenue
+Өтінімді сақтау|Сохранить заявку|Save report
+Өтінім жол қызметінің тізіліміне түседі.|Заявка появится в реестре дорожной службы.|The report will appear in the road maintenance register.
+АСТАНА · ҚАЗАҚСТАН|АСТАНА · КАЗАХСТАН|ASTANA · KAZAKHSTAN
+Бүкіл қала бір картада|Весь город на одной карте|The whole city on one map
+Жол ақауларының орнын қарап, жөндеуге басымдық беріңіз.|Посмотрите, как дорожные дефекты распределяются по городу.|See how road defects are distributed across the city.
+Картада үлгілік өтінімдер де көрсетілген. Олар арнайы белгіленген.|На карте есть демонстрационные данные.|The map includes demo data.
+өтінім табылды|точек найдено|locations found
+Нүктелер|Точки|Markers
+Жылу картасы|Тепловая карта|Heat map
+Астана ақауларының интерактивті картасы|Интерактивная карта дефектов Астаны|Interactive map of Astana defects
+Аудан шекаралары жуық түрде анықталады|Границы районов приблизительны|District boundaries are approximate
+Барлық қауіп деңгейі|Все уровни риска|All risk levels
+Жоғары қауіп|Высокий риск|High risk
+Орташа қауіп|Средний риск|Medium risk
+Төмен қауіп|Низкий риск|Low risk
+Мәртебе|Статус|Status
+Барлық мәртебе|Все статусы|All statuses
+Аудан|Район|District
+Барлық аудан|Все районы|All districts
+Есіл|Есиль|Yesil
+Алматы|Алматы|Almaty
+Сарыарқа|Сарыарка|Saryarka
+Байқоңыр|Байконур|Baikonur
+Нұра|Нура|Nura
+Астана шегінен тыс|За пределами Астаны|Outside Astana
+Бастап|С|From
+Бастапқы күн|Начальная дата|Start date
+Дейін|По|To
+Соңғы күн|Конечная дата|End date
+Тазарту|Сбросить|Reset
+ДЕРЕКТЕРГЕ НЕГІЗДЕЛГЕН ШЕШІМ|РЕШЕНИЯ НА ОСНОВЕ ДАННЫХ|DATA-INFORMED DECISIONS
+Қала жағдайы сандармен|Город в цифрах|The city in numbers
+Жол сапасын бағалап, ресурстарды ең қажет жерге бағыттаңыз.|Оцените состояние дорог и определите приоритеты ремонта.|Review road conditions and decide what to repair first.
+ДЕМО|ДЕМО|DEMO
+Талдауға|В анализе учтено|The analysis includes
+демо өтінім енгізілген.|демонстрационных заявок.|demo reports.
+Барлық өтінім|Всего заявок|Total reports
+Белсенді|Активные|Active
+Сақталған өтінімдер бойынша|По сохранённым заявкам|Based on saved reports
+Қауіп деңгейі|Уровень риска|Risk level
+Өтінімдердің үлестірімі|Распределение заявок|Report distribution
+Қауіп деңгейі бойынша өтінімдер|Заявки по уровню риска|Reports by risk level
+Қаланың белсенділігі|Активность города|City activity
+Соңғы 14 күндегі өтінім саны|Заявки за последние 14 дней|Reports over the last 14 days
+14 күн|14 дней|14 days
+Күндер бойынша өтінімдер|Заявки по дням|Reports by day
+Аудандар бойынша|По районам|By district
+Координаттар бойынша жуық жіктеу|Приблизительная классификация по координатам|Approximate classification by coordinates
+Аудандар бойынша өтінімдер|Заявки по районам|Reports by district
+Әр белгі —|Каждая отметка|Every marker
+нақты өзгеріске қадам.|приближает ремонт.|brings a repair closer.
+Жөндеу басымдығы қауіп деңгейі, ақау саны және өтінімнің жасына қарай есептеледі.|Приоритет ремонта учитывает риск, число дефектов и возраст заявки.|Repair priority considers risk, defect count, and report age.
+Бір өтінім. Бір өзгеріс|Управление заявками|Report management
+Барлық хабарламаларды қарап, жөндеу барысын басқарыңыз.|Просматривайте заявки и управляйте ходом ремонта.|Review reports and manage repair progress.
+PDF есеп|Отчёт PDF|PDF report
+Үлгілік өтінімдер «ДЕМО» белгісімен көрсетіледі.|Демонстрационные заявки отмечены значком «ДЕМО».|Demo reports carry a DEMO badge.
+Өтінімдер тізілімі|Реестр заявок|Report register
+Жөндеу басымдығы бойынша реттелген|По приоритету ремонта|Sorted by repair priority
+Уақыт белдеуі: Астана|Часовой пояс: Астана|Time zone: Astana
+Өтінім / күні|Заявка / дата|Report / date
+Ақау|Дефекты|Defects
+Басымдық|Приоритет|Priority
+Әрекет|Действие|Action
+Өтінімдер жүктелуде…|Заявки загружаются…|Loading reports…
+Басымдық = қауіп салмағы × ақау саны × (1 + күн / 7)|Приоритет = вес риска × число дефектов × (1 + дни / 7)|Priority = risk weight × defect count × (1 + days / 7)
+Демо деректерін өшіру|Удалить демоданные|Delete demo data
+ЖҮЙЕНІ БАСҚАРУ|УПРАВЛЕНИЕ СИСТЕМОЙ|SYSTEM SETTINGS
+Барлығы өз бақылауыңызда|Настройки системы|System settings
+Gemini қосылымы, құпиялылық және демо деректер.|Подключение Gemini, конфиденциальность и демоданные.|Gemini connection, privacy, and demo data.
+Кілт серверге қосылған|Ключ подключён к серверу|Key configured on the server
+API кілті қосылмаған|API-ключ не подключён|API key is missing
+Модель:|Модель:|Model:
+. Қосылымның жұмысын нақты суретпен талдау кезінде тексеруге болады.|. Проверьте подключение, запустив анализ фото.|. Run a photo scan to check the connection.
+Жоба түбіріндегі|В корне проекта скопируйте|In the project root, copy
+файлын|файл|to
+деп көшіріңіз.|под новым именем.|.
+мәніне өз кілтіңізді жазыңыз.|укажите свой ключ.|to your API key.
+Серверді қайта іске қосыңыз:|Перезапустите сервер:|Restart the server:
+Кілт браузерге жіберілмейді және репозиторийге кірмейді.|Ключ хранится на сервере.|The key is stored on the server.
+Құпиялылық қалай жұмыс істейді?|Как защищаются данные?|How does privacy work?
+Суреттегі анықталған беттер серверде бұлыңғырланады. Gemini-ге осы өңделген нұсқа ғана жіберіледі. GPS бөлек сақталады; сурет файлдарында EXIF болмайды.|Сервер размывает обнаруженные лица и отправляет обработанное фото в Gemini. GPS хранится отдельно от изображения.|The server blurs detected faces before sending the image to Gemini. GPS is stored separately from the image.
+Haar детекторы барлық бетті анықтай алмайды. Көлік нөмірлері автоматты жабылмайды. Жүктемес бұрын сезімтал мәліметтерді өзіңіз жабыңыз.|Детектор может пропустить лица. Закройте номера автомобилей и другие чувствительные данные перед загрузкой.|The detector may miss faces. Cover license plates and other sensitive details before uploading.
+AI нәтижесі жол қызметінің тексеруін алмастырмайды. Нақты тереңдік, өлшем және жөндеу құны фотодан есептелмейді.|Результат ИИ служит предварительной оценкой для дорожной службы. Глубину, размер и стоимость уточняет специалист.|AI provides a preliminary assessment. A road specialist determines depth, dimensions, and repair cost.
+Көрсетілім деректері|Демонстрационные данные|Demo data
+үлгілік өтінім. Суреттер бағдарламамен салынған; олар нақты жол фотолары емес.|демонстрационных заявок с иллюстрациями.|demo reports with synthetic illustrations.
+Демо жасау:|Создание демоданных:|Generate demo data:
+. Қайта іске қосу деректерді қайталамайды.|. Повторный запуск не создаёт дубликаты.|. Rerunning the command avoids duplicates.
+JolScan AI туралы|О JolScan AI|About JolScan AI
+Жолдың жағдайын бақылауға және жөндеу жұмыстарын жоспарлауға арналған ашық бастапқы кодты студенттік жоба.|Студенческий проект с открытым кодом для мониторинга дорог и планирования ремонта.|An open-source student project for road monitoring and repair planning.
+Қала|Город|City
+AI провайдері|Провайдер ИИ|AI provider
+Карталар|Карты|Maps
+Нұсқа|Версия|Version
+Қате|Ошибка|Error
+Бет табылмады|Страница не найдена|Page not found
+Сұрау орындалмады|Не удалось выполнить запрос|Request failed
+Сілтемені тексеріңіз немесе басты бетке оралыңыз.|Проверьте ссылку или вернитесь на главную.|Check the link or return to the homepage.
+Басты бетке өту|На главную|Go to homepage
+Жол ақауын талдап, өтінім жіберу үшін аккаунт қолданыңыз.|Войдите в аккаунт для анализа дороги и отправки заявки.|Use your account to scan a road and submit a report.
+Электрондық пошта|Электронная почта|Email
+Құпиясөз|Пароль|Password
+Аккаунтыңыз бар ма? Кіріңіз|Уже есть аккаунт? Войти|Already have an account? Sign in
+Жаңа аккаунт ашу|Создать аккаунт|Create an account
+Электрондық поштаны және кемінде 6 таңбалы құпиясөзді енгізіңіз.|Введите почту и пароль длиной от 6 символов.|Enter an email and a password of at least 6 characters.
+Бұл электрондық пошта тіркелген.|Эта почта уже зарегистрирована.|This email is already registered.
+Электрондық пошта немесе құпиясөз дұрыс емес.|Неверная почта или пароль.|Incorrect email or password.
+Аватар|Аватар|Avatar
+Барлық өрістерді қалауыңыз бойынша толтырыңыз.|Все поля профиля необязательны.|All profile fields are optional.
+Профиль сақталды.|Профиль сохранён.|Profile saved.
+Аты|Имя|First name
+Тегі|Фамилия|Last name
+Туған күні|Дата рождения|Date of birth
+Телефон нөмірі|Номер телефона|Phone number
+Өзіңіз туралы|О себе|Bio
+Аватарды өшіру|Удалить аватар|Remove avatar
+Сақтау|Сохранить|Save
+Шығу|Выйти|Sign out
+Өрістерді тексеріңіз. Аватар JPG, PNG немесе WebP, ең көбі 2 МБ.|Проверьте поля. Аватар должен быть в JPG, PNG или WebP и до 2 МБ.|Check the fields. Avatars must be JPG, PNG, or WebP and up to 2 MB.
+Бір фото қалай шешімге айналады?|Как один снимок превращается в решение?|How does one photo lead to a repair?
+Төрт қадамда фото, талдау, карта және жөндеу барысын көріңіз.|Пройдите четыре шага от фото до ремонта.|Walk through four steps from photo to repair.
+Қазылар алқасына арналған интерактивті көрсетілім. Барлық дерек үлгі ретінде берілген.|Интерактивная демонстрация для жюри на примере одной дороги.|An interactive walkthrough for judges, using a sample road.
+Көрсетілім қадамдары|Шаги демонстрации|Walkthrough steps
+Фото|Фото|Photo
+Талдау|Анализ|Analysis
+Карта|Карта|Map
+Жөндеу|Ремонт|Repair
+Жолдың үлгілік көрінісі|Пример дорожного участка|Sample road scene
+ҮЛГІЛІК КӨРІНІС|ИЛЛЮСТРАЦИЯ|ILLUSTRATION
+Жолды суретке түсіріңіз|Сфотографируйте дорогу|Photograph the road
+Тұрғын жол ақауын көріп, бір сурет жүктейді.|Житель замечает дефект дороги и загружает снимок.|A resident spots a road defect and uploads a photo.
+Сервер анықталған беттерді бұлыңғырлайды және EXIF деректерін жояды.|Сервер размывает обнаруженные лица и удаляет EXIF.|The server blurs detected faces and removes EXIF metadata.
+Gemini ақаудың контурын белгілейді|Gemini очерчивает дефект|Gemini outlines the defect
+Жарық пен көлеңке арасынан көрінетін ақаудың шекарасы анықталады.|Модель выделяет видимую границу повреждения.|The model marks the visible boundary of the damage.
+JSON жауабы тексеріледі. Кадрдағы контур ауданы қауіп бағасына айналады.|Сервер проверяет ответ JSON и оценивает риск по площади контура в кадре.|The server validates the JSON and estimates risk from the outline area in the image.
+Орынды картадан белгілеңіз|Отметьте место на карте|Mark the location
+Тұрғын ақаудың орнын растайды. Жол қызметі қайда бару керегін біледі.|Житель подтверждает место, чтобы дорожная служба знала, куда выезжать.|The resident confirms the location so the road crew knows where to go.
+EXIF, браузер геолокациясы немесе қолмен таңдалған координаттар қолданылады.|Координаты берутся из EXIF, геолокации браузера или выбранной точки.|Coordinates come from EXIF, browser geolocation, or a manually selected point.
+Әкімші жөндеуді басқарады|Администратор управляет ремонтом|The administrator manages repairs
+Жол қызметі қауіп деңгейін қарап, өтінімді жұмысқа алады және жөндеу мәртебесін жаңартады.|Дорожная служба оценивает риск, берёт заявку в работу и обновляет статус ремонта.|The road crew reviews the risk, starts work, and updates the repair status.
+SQLite өтінім мен авторды байланыстырады. Тізілім мен есептер әкімші рөліне ғана ашық.|SQLite связывает заявку с автором. Реестр и отчёты доступны администратору.|SQLite links each report to its author. The administrator can access the register and exports.
+Техникалық мәлімет|Техническая деталь|Technical detail
+Келесі қадам|Следующий шаг|Next step
+Ақау суреті|Фото дефекта|Defect photo
+Жол ақауы|Дорожный дефект|Road defect
+Жұмысқа алу|Взять в работу|Start repair
+✓ Аяқталды|✓ Завершено|✓ Complete
+Бұл сүзгі бойынша өтінім табылмады.|По этому фильтру заявок нет.|No reports match these filters.
+Жаңа талдау →|Новый анализ →|New scan →
+Мәртебе жаңартылды.|Статус обновлён.|Status updated.
+Демо өтінімдерді және олардың суреттерін өшіргіңіз келе ме?|Удалить демонстрационные заявки и их снимки?|Delete demo reports and their images?
+Деректер жүктелмеді. Бетті жаңартыңыз.|Не удалось загрузить данные. Обновите страницу.|Data could not be loaded. Refresh the page.
+Серверге қосылу мүмкін болмады. Интернет пен серверді тексеріңіз.|Не удалось подключиться. Проверьте интернет и сервер.|Could not connect. Check your connection and the server.
+Сервер жауабы оқылмады. Қайта көріңіз.|Не удалось прочитать ответ сервера. Повторите попытку.|Could not read the server response. Try again.
+Сұрау орындалмады.|Запрос не выполнен.|Request failed.
+Карта кітапханасы жүктелмеді. Интернетті тексеріңіз.|Библиотека карты не загрузилась. Проверьте интернет.|The map library could not load. Check your connection.
+Карта қабаты жүктелмеді. Интернетті тексеріңіз; өтінім нүктелері қолжетімді.|Подложка карты не загрузилась. Проверьте интернет. Точки доступны.|Map tiles could not load. Check your connection. Markers are available.
+Жылу картасы жүктелмеді. Интернетті тексеріңіз.|Тепловая карта не загрузилась. Проверьте интернет.|The heat map could not load. Check your connection.
+Графиктер жүктелмеді. Интернетті тексеріңіз.|Графики не загрузились. Проверьте интернет.|Charts could not load. Check your connection.
+Бір кезекте ең көбі 8 файл.|В очереди может быть до 8 файлов.|Queue up to 8 files.
+файл көлемі 15 МБ-тан үлкен.|файл больше 15 МБ.|the file exceeds 15 MB.
+бұл пішім қолдау таппайды.|формат не поддерживается.|this format is unsupported.
+Таңдалған сурет|Выбранное фото|Selected photo
+файлын жою|удалить файл|remove file
+МБ|МБ|MB
+Кадр аралығы 10–300 болуы керек.|Интервал между кадрами должен быть от 10 до 300.|The frame interval must be between 10 and 300.
+Gemini талдауы:|Анализ Gemini:|Gemini analysis:
+файл…|файлов…|files…
+Талдау аяқталды. Орналасқан жерін көрсетіп, өтінімді сақтаңыз.|Анализ завершён. Отметьте место и сохраните заявку.|Analysis complete. Mark the location and save the report.
+Орны белгіленді. Қажет болса, маркерді жылжытыңыз.|Место отмечено. При необходимости передвиньте маркер.|Location marked. Move the marker if needed.
+с кадр|сек · кадр|sec frame
+Жақсы жаңалық! Жол ақаулары анықталмады.|Дефекты дороги не обнаружены.|No road defects detected.
+Ақаулар саны|Число дефектов|Defect count
+AI өзіндік бағасы|Уверенность ИИ|AI confidence
+Талдау уақыты|Время анализа|Analysis time
+с|с|s
+✓ Өтінім сақталды|✓ Заявка сохранена|✓ Report saved
+Орналасқан жері анықталды. Картадан тексеріңіз.|Местоположение определено. Проверьте на карте.|Location found. Check it on the map.
+Браузер геолокацияны қолдамайды. Картадан орынды таңдаңыз.|Геолокация недоступна. Выберите точку на карте.|Geolocation is unavailable. Choose a point on the map.
+Орныңыз анықталмады. HTTPS рұқсатын тексеріңіз немесе картадан таңдаңыз.|Не удалось определить местоположение. Проверьте доступ к геолокации или выберите точку на карте.|Could not find your location. Check location permissions or choose a point on the map.
+Өтінім сақталды! Ол жол қызметіне жіберілді.|Заявка сохранена в реестре дорожной службы.|The report was saved to the road maintenance register.
+Веб-камера үшін HTTPS немесе localhost қажет. Файл таңдау батырмасын қолданыңыз.|Для веб-камеры нужен HTTPS или localhost. Можно выбрать файл.|The webcam requires HTTPS or localhost. You can select a file instead.
+Камера ашылмады. Браузер рұқсатын тексеріңіз немесе файл таңдаңыз.|Камера не открылась. Проверьте разрешение браузера или выберите файл.|Could not open the camera. Check browser permissions or select a file.
+Камера дайын болғанша күтіңіз.|Подождите, пока камера будет готова.|Wait for the camera to be ready.
+Барлығы {count} өтінім|Всего заявок: {count}|Total reports: {count}
+{count} демо өтінім өшірілді.|Удалено демозаявок: {count}.|Demo reports deleted: {count}.
+Браузер геолокациясы, дәлдігі шамамен {accuracy} м. Орнын тексеріңіз.|Геолокация браузера, точность около {accuracy} м. Проверьте точку.|Browser location, accurate to about {accuracy} m. Check the point.
+Жол қызметіне тіркелді|Принято дорожной службой|Added to the maintenance register
+ЖӨНДЕУ БАСЫМДЫҒЫ|ПРИОРИТЕТ РЕМОНТА|REPAIR PRIORITY
+Ақау белгіленген орын|Место дефекта|Defect location
+Ашық картадағы нүктелер — демонстрациялық.|Точки на публичной карте демонстрационные.|Public map markers are demonstration data.
+Фото немесе бейне таңдаңыз.|Выберите фото или видео.|Choose a photo or video.
+Файл бос.|Файл пуст.|The file is empty.
+JSON сұрауы қажет.|Ожидается запрос в формате JSON.|A JSON request is required.
+Осы сессияның талдауын ғана сақтай аласыз.|Можно сохранить только анализ из этой сессии.|You can save scans from this session only.
+Мәртебе жарамсыз.|Недопустимый статус.|Invalid status.
+Мәртебені тек ретімен өзгертуге болады.|Статус можно менять только по порядку.|Statuses must be updated in order.
+Қауіп деңгейі жарамсыз.|Недопустимый уровень риска.|Invalid risk level.
+Күн аралығын дұрыс көрсетіңіз.|Укажите корректный диапазон дат.|Enter a valid date range.
+Gemini API кілті қосылмаған. Баптаулар бетіндегі нұсқаулықты орындаңыз.|Ключ Gemini API не подключён. Откройте инструкцию в настройках.|The Gemini API key is missing. See the setup guide in Settings.
+Картадан орналасқан жерді белгілеңіз.|Отметьте место на карте.|Mark the location on the map.
+Бейне оқылмады. MP4 немесе WebM файлын қолданыңыз.|Видео не читается. Выберите MP4 или WebM.|Could not read the video. Choose MP4 or WebM.
+Бейне ажыратымдылығы тым үлкен.|Слишком высокое разрешение видео.|The video resolution is too high.
+Бейнеде оқылатын кадр жоқ.|Не удалось прочитать ни одного кадра.|No video frames could be read.
+JPG, PNG, WebP, MP4, MOV немесе WebM файлын таңдаңыз.|Выберите JPG, PNG, WebP, MP4, MOV или WebM.|Choose a JPG, PNG, WebP, MP4, MOV, or WebM file.
+Файл бүлінген немесе сурет пішімі қолдау таппайды.|Файл повреждён или формат не поддерживается.|The file is damaged or the image format is unsupported.
+Бейне ұзақтығы {seconds} секундтан аспауы керек.|Видео должно быть не длиннее {seconds} сек.|The video must be {seconds} seconds or shorter.
+Сурет 24 мегапиксельден аспауы керек.|Разрешение фото должно быть не больше 24 мегапикселей.|The image must be 24 megapixels or smaller.
+Gemini жауабы жарамсыз. Қайта көріңіз.|Gemini вернул некорректный ответ. Повторите попытку.|Gemini returned an invalid response. Try again.
+Gemini API кілті қосылмаған. Сервердегі .env файлына GEMINI_API_KEY енгізіп, серверді қайта іске қосыңыз.|Укажите GEMINI_API_KEY в файле .env и перезапустите сервер.|Set GEMINI_API_KEY in .env and restart the server.
+GEMINI_MODEL параметрі жарамсыз.|Недопустимое значение GEMINI_MODEL.|The GEMINI_MODEL setting is invalid.
+Gemini нысан координаттарын қате қайтарды. Қайта көріңіз.|Gemini вернул некорректные координаты. Повторите попытку.|Gemini returned invalid coordinates. Try again.
+Gemini сұрауды қабылдамады. Модельдің сурет пен JSON қолдауын тексеріңіз.|Gemini отклонил запрос. Проверьте поддержку изображений и JSON у модели.|Gemini rejected the request. Check whether the model supports images and JSON.
+Gemini API кілті жарамсыз.|Ключ Gemini API недействителен.|The Gemini API key is invalid.
+Gemini кілтінің рұқсатын және аймақ қолжетімділігін тексеріңіз.|Проверьте разрешения ключа Gemini и доступность сервиса в регионе.|Check Gemini key permissions and regional availability.
+Gemini моделі табылмады. GEMINI_MODEL параметрін тексеріңіз.|Модель Gemini не найдена. Проверьте GEMINI_MODEL.|The Gemini model was not found. Check GEMINI_MODEL.
+Gemini сұрау лимиті аяқталды. Біраздан кейін қайталаңыз.|Лимит запросов Gemini исчерпан. Повторите позже.|The Gemini request limit was reached. Try again later.
+Gemini жауабын күту уақыты аяқталды. Қайта көріңіз.|Gemini не ответил вовремя. Повторите попытку.|Gemini timed out. Try again.
+Gemini серверіне қосылу мүмкін болмады. Интернетті тексеріңіз.|Не удалось подключиться к Gemini. Проверьте интернет.|Could not connect to Gemini. Check your connection.
+Gemini суретті талдай алмады. Басқа суретпен қайталаңыз.|Gemini не смог проанализировать фото. Попробуйте другое.|Gemini could not analyze the image. Try another one.
+Gemini қызметі уақытша қолжетімсіз. Кейінірек қайталаңыз.|Gemini временно недоступен. Повторите позже.|Gemini is temporarily unavailable. Try again later.
+Бет құпиялылығы модулі жүктелмеді. OpenCV пакетін қайта орнатыңыз.|Модуль размытия лиц не загрузился. Переустановите OpenCV.|The face blurring module could not load. Reinstall OpenCV.
+Астанаға оралу|К центру Астаны|Focus on Astana
+Қазыларға арналған жедел сынақ|Быстрые кейсы для жюри|One-click cases for judges
+Көпірдегі ойық|Провал на мосту|Bridge pothole
+Жол жабынындағы жарық|Трещина полотна|Pavement crack
+Ашық су қабылдағыш|Открытый дождеприёмник|Open storm drain
+Дыбыс қосулы|Звук включён|Sound on
+Дыбыс өшірулі|Звук выключен|Sound off
+Бұл — дайын деректері бар оқу сценарийі.|Учебный сценарий с подготовленными данными.|A practice scenario with prepared data.
+Жөндеу сметасының үлгісі|Сценарная смета ремонта|Repair cost scenario
+Жұмыс нарядын жүктеу|Экспорт наряда на работу|Export work order
+Жұмыс нарядының жобасы|Проект наряда на работу|Draft work order
+Шамамен ауданы|Приблизительная площадь|Approximate area
+Ыстық асфальт қоспасы|Горячая асфальтобетонная смесь|Hot asphalt mix
+Есептік жөндеу құны|Расчётная стоимость ремонта|Estimated repair cost
+Шартты қауіп индексі|Условный индекс риска|Illustrative risk score
+Кейінге қалдыру сценарийі (×6)|Сценарий отложенного ремонта (×6)|Deferred repair scenario (×6)
+Модельдегі ықтимал үнем|Потенциальная экономия по модели|Potential savings in the model
+Сындарлы|Критический|Critical
+Нақты фотосуреттер|Реальные фотографии|Real photographs
+Жол ақауының фотосы|Фотография дорожного дефекта|Photograph of a road defect
+ФОТО КЕЙС|ФОТОКЕЙС|PHOTO CASE
+Ашық көрсетілім: фотокейстер, карта және смета қолжетімді.|Публичное демо: фотокейсы, карта и смета.|Public showcase: photo cases, map and repair estimates.
+estimate_assumptions|Условный расчёт для демонстрации. Площадь получена из доли кадра с опорной площадью 4,5 м². Использованы 120 кг/м², 14 500 ₸/м² и сценарий удорожания в 6 раз. Для наряда подрядчика нужны замеры и актуальные расценки.|Illustrative calculation. Image coverage is scaled to a reference area of 4.5 m². The model uses 120 kg/m², ₸14,500/m² and a 6× deferred-cost scenario. A contractor needs site measurements and current rates.|Көрсетілімге арналған шартты есеп. Кадрдағы үлес 4,5 м² тірек ауданға көбейтіледі. Есепте 120 кг/м², 14 500 ₸/м² және 6 есе қымбаттау сценарийі қолданылады. Мердігерге нақты өлшемдер мен ағымдағы бағалар қажет.

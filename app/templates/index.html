@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="hero editorial-hero" aria-labelledby="hero-title">
+  <div class="hero-copy">
+    <div class="editorial-kicker"><span class="signal-square"></span> SMART CITY / ASTANA <span>51° 10′ N</span></div>
+    <h1 id="hero-title">{{ tr("Қала жолдары — назарда") }}<span>.</span></h1>
+    <p>{{ tr("Астана жолдарының жағдайын жасанды интеллектпен бақылаңыз.") }}</p>
+    <div class="hero-actions"><a class="button primary" href="/analyze">{{ tr('Жолды тексеру') }} {{ icon('arrow',18) }}</a><a class="button secondary" href="/demo">{{ t('nav_demo') }} {{ icon('external',16) }}</a></div>
+    <div class="hero-coordinate"><span>01 / JOLSCAN AI</span><span>{{ tr('Фото және бейне') }}</span></div>
+  </div>
+  <figure class="hero-visual">
+    <img src="{{ url_for('static', filename='img/presets/bridge.png') }}" alt="{{ tr('Жол ақауының фотосы') }}" fetchpriority="high">
+    <div class="photo-index">CASE <strong>01</strong></div>
+    <figcaption class="photo-glass"><span class="signal-square"></span><div><span class="eyebrow">{{ tr('ФОТО КЕЙС') }} / 01</span><strong>{{ tr('Көпірдегі ойық') }}</strong></div><a class="icon-button" href="/analyze" aria-label="{{ tr('Көпірдегі ойық') }}">{{ icon('arrow',18) }}</a></figcaption>
+  </figure>
+</section>
+<section class="stats-grid" aria-label="{{ tr('Жалпы көрсеткіштер') }}">
+  {% for key,label,symbol,color,note in [('defects','Анықталған ақаулар','scan','yellow','Барлық тіркелген ақаулар'),('critical','Қауіпті учаскелер','alert','red','Бірінші кезекте назар қажет'),('repaired','Жөнделген жолдар','check','green','Жөнделген өтінімдер'),('active','Белсенді өтінімдер','file','blue','Жұмысқа алынған және жаңа')] %}
+  <article class="stat-card"><div class="stat-top"><span>{{ tr(label) }}</span><span class="stat-icon {{ color }}">{{ icon(symbol,19) }}</span></div><div class="stat-number" data-stat="{{ key }}">0</div><small>{% if key=='repaired' %}<span class="green">{{ icon('check',12) }}</span>{% endif %} {{ tr(note) }}</small></article>
+  {% endfor %}
+</section>
+<div class="data-note" id="demo-note" hidden><span class="demo-badge">{{ tr("ДЕМО") }}</span><span>{{ tr("Көрсеткіштерде") }} <b data-stat="demo">0</b> {{ tr("үлгілік өтінім бар. Олар нақты жол жағдайын көрсетпейді.") }}</span></div>
+<section class="photo-section" aria-labelledby="photo-cases">
+  <div class="section-header"><div><div class="eyebrow">02 / FIELD NOTES</div><h2 id="photo-cases">{{ tr('Нақты фотосуреттер') }}</h2></div><a href="/analyze" class="text-link">{{ tr('Қазыларға арналған жедел сынақ') }} {{ icon('arrow',16) }}</a></div>
+  <div class="photo-cases">
+    {% for id,title in [('bridge','Көпірдегі ойық'),('crack','Жол жабынындағы жарық'),('drain','Ашық су қабылдағыш')] %}
+    <article class="photo-case"><img src="{{ url_for('static', filename='img/presets/' + id + '.png') }}" alt="{{ tr(title) }}" loading="lazy"><div><small>0{{ loop.index }} / {{ tr('Фото') }}</small><h3>{{ tr(title) }}</h3></div></article>
+    {% endfor %}
+  </div>
+</section>
+<section class="overview-grid"><article class="panel map-panel"><div class="panel-heading"><div><h3>{{ tr("Қаланың жол пульсі") }}</h3><p>{{ tr("Ақаулардың қала бойынша таралуы") }}</p></div><a href="/map" class="text-link">{{ tr("Толық карта") }} {{ icon('arrow',16) }}</a></div><div class="map-preview" id="overview-map" aria-label="{{ tr('Астана жол ақауларының картасы') }}"><div class="map-fallback">{{ tr("Карта жүктелуде…") }}</div></div><div class="map-legend"><span><i class="legend-dot high"></i> {{ tr("Жоғары қауіп") }}</span><span><i class="legend-dot medium"></i> {{ tr("Орташа қауіп") }}</span><span><i class="legend-dot low"></i> {{ tr("Төмен қауіп") }}</span><span class="map-city">{{ icon('pin',13) }} {{ tr("Астана, Қазақстан") }}</span></div></article>
+<article class="panel demo-teaser"><span class="step-icon">{{ icon('spark',24) }}</span><span class="eyebrow">JOLSCAN AI · LIVE WALKTHROUGH</span><h3>{{ tr('Бір фото қалай шешімге айналады?') }}</h3><p>{{ tr('Төрт қадамда фото, талдау, карта және жөндеу барысын көріңіз.') }}</p><a class="button primary" href="/demo">{{ t('nav_demo') }} {{ icon('arrow',16) }}</a></article></section>
+<section class="how-section"><div class="section-header"><h3>{{ tr("Бәрі қарапайым. Үш қадам.") }}</h3><span>{{ tr("Қаланың сапасына сіз де үлес қосыңыз") }}</span></div><div class="steps-grid">{% for n,title,description,symbol in [('01','Фото жүктеңіз','Жолды суретке түсіріңіз немесе дайын файлды таңдаңыз.','camera'),('02','AI талдауын алыңыз','Gemini ақауларды белгілеп, қауіп деңгейін бағалайды.','spark'),('03','Картада белгілеңіз','Орнын көрсетіп, жол қызметіне арналған өтінімді сақтаңыз.','pin')] %}<article class="step"><span class="step-icon">{{ icon(symbol,21) }}</span><div><small>{{ tr("ҚАДАМ") }} {{ n }}</small><h4>{{ tr(title) }}</h4><p>{{ tr(description) }}</p></div></article>{% endfor %}</div></section>
+{% endblock %}
