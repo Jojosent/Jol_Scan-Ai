@@ -14,6 +14,7 @@ class Config:
     GEMINI_API_KEY = os.getenv('GEMINI_API_KEY', '')
     GEMINI_MODEL = os.getenv('GEMINI_MODEL', 'gemini-3.5-flash-lite')
     CARTO_BASEMAP_KEY = os.getenv('CARTO_BASEMAP_KEY', '')
+    GEOCODER_URL = os.getenv('GEOCODER_URL', 'https://photon.komoot.io/api/')
     VIDEO_FRAME_STEP = int(os.getenv('VIDEO_FRAME_STEP', '30'))
     MAX_VIDEO_FRAMES = int(os.getenv('MAX_VIDEO_FRAMES', '5'))
     MAX_VIDEO_SECONDS = int(os.getenv('MAX_VIDEO_SECONDS', '30'))

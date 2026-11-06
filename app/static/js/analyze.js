@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   const {armSound,beep,demoResult,showPhotoOverlay,showEstimate,exportOrder}=window.JolShowcase;
   let files=[],results=[],current=0,map=null,marker=null,coordinates=null,busy=false,webcamStream=null;
   const positions=new Map();const addresses=new Map();const urls=[];
+  let locationRequest = 0;
   const presets = [...document.querySelectorAll('[data-preset]')];
   const uploadLimit = Number($('file-input').dataset.limitMb);
   const isVideo = file => /\.(mp4|webm|mov)$/i.test(file.name);
@@ -149,12 +150,96 @@ document.addEventListener('DOMContentLoaded',()=>{
   function setPosition(lat,lon,source){
     coordinates={latitude:lat,longitude:lon};const report=results[current];if(report)positions.set(report.token,coordinates);
     $('coordinates-label').textContent=`${lat.toFixed(6)}, ${lon.toFixed(6)}`;$('location-help').textContent=source||tr('Орны белгіленді. Қажет болса, маркерді жылжытыңыз.');
-    if(map){if(!marker){marker=L.marker([lat,lon],{draggable:true}).addTo(map);marker.on('dragend',()=>{const pos=marker.getLatLng();setPosition(pos.lat,pos.lng);});}else marker.setLatLng([lat,lon]);map.panTo([lat,lon]);}
+    if (map) {
+      if (!marker) {
+        marker = L.marker([lat,lon], {draggable:true}).addTo(map);
+        marker.on('dragend', () => {
+          resetAddressSearch();
+          const point = marker.getLatLng();
+          setPosition(point.lat, point.lng);
+        });
+      } else {
+        marker.setLatLng([lat,lon]);
+      }
+      map.panTo([lat,lon]);
+    }
     $('save-report').disabled=Boolean(report?.saved || report?.demo);
   }
+  function resetAddressSearch() {
+    locationRequest++;
+    $('address-results').replaceChildren();
+    $('address-results').hidden = true;
+    $('find-address').disabled = Boolean(results[current]?.saved || results[current]?.demo);
+    $('save-report').disabled = !coordinates || $('find-address').disabled;
+  }
+
+  function selectAddress(match, enteredAddress) {
+    $('address').value = match.exact ? match.address : enteredAddress;
+    setPosition(match.latitude, match.longitude, tr(match.exact
+      ? 'Мекенжай табылды. Нүктені картадан тексеріңіз.'
+      : 'Шамамен орны табылды. Картадағы нүктені нақтылаңыз.'));
+    map?.setZoom(16);
+  }
+
+  async function searchAddress() {
+    const report = results[current];
+    const query = $('address').value.trim();
+    if (!report || report.saved || report.demo) return;
+    if (query.length < 3) {
+      toast(tr('Іздеу үшін мекенжайды енгізіңіз.'), true);
+      return;
+    }
+    resetAddressSearch();
+    const request = locationRequest;
+    const button = $('find-address');
+    button.disabled = true;
+    $('save-report').disabled = true;
+    $('location-help').textContent = tr('Мекенжай ізделуде…');
+    try {
+      const {results: matches} = await api('/api/geocode?' + new URLSearchParams({q:query}));
+      if (request !== locationRequest) return;
+      if (!matches.length) {
+        $('location-help').textContent = tr('Мекенжай табылмады. Нүктені картадан таңдаңыз.');
+        return;
+      }
+      selectAddress(matches[0], query);
+      if (matches.length > 1) {
+        const list = $('address-results');
+        for (const match of matches) {
+          const option = document.createElement('button');
+          option.type = 'button';
+          option.className = 'button secondary small';
+          option.textContent = match.address;
+          option.addEventListener('click', () => { selectAddress(match, query); resetAddressSearch(); });
+          list.append(option);
+        }
+        list.hidden = false;
+      }
+    } catch (error) {
+      if (request === locationRequest) $('location-help').textContent = error.message;
+    } finally {
+      if (request === locationRequest) {
+        button.disabled = false;
+        $('save-report').disabled = !coordinates;
+      }
+    }
+  }
+
+  $('find-address').addEventListener('click', searchAddress);
+  $('address').addEventListener('input', resetAddressSearch);
+  $('address').addEventListener('keydown', event => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      if (!$('find-address').disabled) searchAddress();
+    }
+  });
+
   function showResult(index){
     if(results[current])addresses.set(results[current].token,$('address').value);
     current=index;const report=results[index];
+    resetAddressSearch();
+    $('view-saved-report').hidden = !report.saved;
+    if (report.saved) $('view-saved-report').href = '/map?report=' + report.id;
     $('result-tabs').innerHTML=results.map((r,i)=>`<button class="result-tab ${i===index?'active':''}" data-result="${i}" title="${escape(r.source)}">${i+1}. ${escape(r.demo ? r.source : r.frame_second!==null ? `${r.frame_second} ${tr('с кадр')}` : tr('Фото'))} ${r.saved?'✓':''}</button>`).join('');
     $('result-original').src=report.original_url;$('result-annotated').src=report.annotated_url;
     showPhotoOverlay(report);
@@ -173,7 +258,14 @@ document.addEventListener('DOMContentLoaded',()=>{
       $('save-report').disabled = true;
       return;
     }
-    if(!map){map=makeMap('location-map',{scrollWheelZoom:true});map?.on('click',e=>{if(!results[current].saved&&!results[current].demo)setPosition(e.latlng.lat,e.latlng.lng);});}
+    if(!map){
+      map=makeMap('location-map',{scrollWheelZoom:true});
+      map?.on('click', e => {
+        if (results[current].saved || results[current].demo) return;
+        resetAddressSearch();
+        setPosition(e.latlng.lat, e.latlng.lng);
+      });
+    }
     coordinates=null;if(marker&&map){map.removeLayer(marker);marker=null;}
     $('address').value=addresses.get(report.token)||report.address||'';$('address').disabled=report.saved;
     $('save-report').textContent=report.saved?tr('✓ Өтінім сақталды'):tr('Өтінімді сақтау');$('save-report').disabled=true;
@@ -189,8 +281,20 @@ document.addEventListener('DOMContentLoaded',()=>{
   $('compare-range').addEventListener('input',updateComparison);
   $('geolocate-button').addEventListener('click',()=>{
     if(!navigator.geolocation){toast(tr('Браузер геолокацияны қолдамайды. Картадан орынды таңдаңыз.'),true);return;}
-    const token=results[current].token;$('geolocate-button').disabled=true;
-    navigator.geolocation.getCurrentPosition(pos=>{if(results[current].token===token){setPosition(pos.coords.latitude,pos.coords.longitude,tr('Браузер геолокациясы, дәлдігі шамамен {accuracy} м. Орнын тексеріңіз.',{accuracy:Math.round(pos.coords.accuracy)}));map?.setZoom(15);}$('geolocate-button').disabled=results[current].saved;},()=>{$('geolocate-button').disabled=results[current].saved;toast(tr('Орныңыз анықталмады. HTTPS рұқсатын тексеріңіз немесе картадан таңдаңыз.'),true);},{enableHighAccuracy:true,timeout:12000,maximumAge:0});
+    resetAddressSearch();
+    const request = locationRequest;
+    $('geolocate-button').disabled = true;
+    navigator.geolocation.getCurrentPosition(position => {
+      if (request === locationRequest && !results[current].saved) {
+        const {latitude, longitude, accuracy} = position.coords;
+        setPosition(latitude, longitude, tr('Браузер геолокациясы, дәлдігі шамамен {accuracy} м. Орнын тексеріңіз.', {accuracy:Math.round(accuracy)}));
+        map?.setZoom(15);
+      }
+      $('geolocate-button').disabled = results[current].saved;
+    }, () => {
+      $('geolocate-button').disabled = results[current].saved;
+      if (request === locationRequest) toast(tr('Орныңыз анықталмады. HTTPS рұқсатын тексеріңіз немесе картадан таңдаңыз.'), true);
+    }, {enableHighAccuracy:true, timeout:12000, maximumAge:0});
   });
   $('save-report').addEventListener('click',async()=>{
     if(!coordinates||results[current].saved||results[current].demo)return;

@@ -26,16 +26,22 @@ def test_registration_profile_and_logout(app, image_bytes):
     assert browser.get('/profile/avatar').status_code == 404
 
 
-def test_public_map_excludes_real_reports_and_photos(app, client):
+def test_public_map_shows_addresses_and_status_without_private_fields(app, client):
     with app.app_context():
-        private = Report(saved=True, latitude=51.2, longitude=71.4)
+        private = Report(saved=True, latitude=51.2, longitude=71.4, status='in_progress',
+                         address='Кабанбай батыра 53')
         demo = Report(saved=True, is_demo=True, latitude=51.1, longitude=71.3)
         db.session.add_all([private, demo])
         db.session.commit()
         token = private.token
     (app.config['UPLOAD_FOLDER'] / f'{token}_original.jpg').write_bytes(b'sample')
     guest = app.test_client()
-    assert guest.get('/api/map').json['reports'] == [{'latitude': 51.1, 'longitude': 71.3, 'severity': 'NONE'}]
+    reports = guest.get('/api/map').json['reports']
+    assert len(reports) == 2
+    real = next(report for report in reports if not report['is_demo'])
+    assert real['address'] == 'Кабанбай батыра 53' and real['status'] == 'in_progress'
+    assert {'token', 'annotated_url', 'summary'}.isdisjoint(real)
+    assert guest.get('/api/map?status=in_progress').json['reports'] == [real]
     assert guest.get(f'/media/{token}/original').status_code == 404
     assert client.get(f'/media/{token}/original').status_code == 200
 

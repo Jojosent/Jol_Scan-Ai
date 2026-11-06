@@ -76,7 +76,11 @@ window.Jol = (() => {
     return map;
   }
   function popup(report) {
-    return `<img class="popup-image" src="${escape(report.annotated_url)}" alt="${escape(tr('Ақау суреті'))}" loading="lazy"><strong class="popup-title">${escape(report.address||tr(report.district))}</strong>${badge(report.severity)} ${report.is_demo?`<span class="demo-badge">${escape(tr('ДЕМО'))}</span>`:''}<div class="popup-status">${statusBadge(report.status)}</div><div class="popup-meta">${escape(date(report.created_at))} · ${report.count} ${escape(tr('Ақау'))} · #JS-${String(report.id).padStart(4,'0')}</div>`;
+    const photo = report.annotated_url
+      ? `<img class="popup-image" src="${escape(report.annotated_url)}" alt="${escape(tr('Ақау суреті'))}" loading="lazy">`
+      : '';
+    const details = report.created_at ? `${escape(date(report.created_at))} · ` : '';
+    return `${photo}<strong class="popup-title">${escape(report.address||tr(report.district))}</strong>${badge(report.severity)} ${report.is_demo?`<span class="demo-badge">${escape(tr('ДЕМО'))}</span>`:''}<div class="popup-status">${statusBadge(report.status)}</div><div class="popup-meta">${details}#JS-${String(report.id).padStart(4,'0')}</div>`;
   }
   function addMarkers(map, reports) {
     if(!map) return null;
@@ -137,6 +141,7 @@ window.Jol = (() => {
     $('markers-mode').addEventListener('click',()=>{mode='markers';render();});
     $('heat-mode').addEventListener('click',()=>{if(!L.heatLayer){toast(tr('Жылу картасы жүктелмеді. Интернетті тексеріңіз.'),true);return;}mode='heat';render();});
     bindFilters(refresh);await refresh();
+    document.addEventListener('visibilitychange', () => { if (!document.hidden) refresh(); });
     const selected=Number(new URLSearchParams(location.search).get('report'));
     if(selected){const report=reports.find(r=>r.id===selected);if(report){map.setView([report.latitude,report.longitude],15);L.popup().setLatLng([report.latitude,report.longitude]).setContent(popup(report)).openOn(map);}}
   }

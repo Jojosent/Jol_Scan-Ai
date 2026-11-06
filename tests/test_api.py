@@ -19,6 +19,31 @@ def test_pages(client):
         assert b'lang="kk"' in result.data
 
 
+def test_geocode_prefers_exact_house_in_astana(client, monkeypatch):
+    class Response:
+        def raise_for_status(self):
+            pass
+
+        def json(self):
+            return {'features': [
+                {'geometry': {'coordinates': [71.44, 51.15]}, 'properties': {'street': 'Test Avenue'}},
+                {'geometry': {'coordinates': [71.43, 51.16]}, 'properties': {'street': 'Test Avenue', 'housenumber': '53'}},
+                {'geometry': {'coordinates': [76.9, 43.25]}, 'properties': {'street': 'Test Avenue', 'housenumber': '53'}},
+            ]}
+
+    def get(url, *, params, **kwargs):
+        assert params['q'] == 'Test Avenue 53'
+        return Response()
+
+    monkeypatch.setattr('app.services.geo.requests.get', get)
+    response = client.get('/api/geocode?q=Test+Avenue+53')
+    assert response.status_code == 200
+    assert response.json['results'] == [
+        {'address': 'Test Avenue 53', 'latitude': 51.16, 'longitude': 71.43, 'exact': True},
+        {'address': 'Test Avenue', 'latitude': 51.15, 'longitude': 71.44, 'exact': False},
+    ]
+
+
 def test_database_photo_survives_request(client, app, headers, image_bytes, gemini_mock):
     from app.models import ReportPhoto
 
@@ -71,6 +96,10 @@ def test_end_to_end(client,app,headers,image_bytes,gemini_mock):
     assert client.patch(path,headers=headers,json={'status':'repaired'}).status_code==409
     assert client.patch(path,headers=headers,json={'status':'in_progress'}).status_code==200
     assert client.patch(path,headers=headers,json={'status':'repaired'}).status_code==200
+    guest = app.test_client()
+    public_point = guest.get('/api/map').json['reports'][0]
+    assert public_point['status'] == 'repaired'
+    assert public_point['address'] == 'Тест көшесі'
     assert client.get('/api/stats').json['repaired']==1
     assert client.get('/export/csv').data.startswith(b'\xef\xbb\xbf')
 

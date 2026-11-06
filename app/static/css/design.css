@@ -111,6 +111,10 @@ body { font-size:14px; background:radial-gradient(ellipse at 80% 0%, #849efe18, 
 .map-focus { backdrop-filter:blur(14px); background:var(--glass); }
 .map-preview,.full-map,.location-map { background:var(--panel2); }
 .account-card,.profile-card { margin-top:10px; }
+.address-search { display:flex; align-items:start; gap:8px; }
+.address-search input { flex:1; min-width:0; }
+.address-results { display:flex; flex-wrap:wrap; gap:6px; margin:8px 0; }
+#view-saved-report { margin-top:8px; }
 input,select,.account-form textarea { border-color:var(--border); }
 input:focus,select:focus,textarea:focus { outline-color:var(--accent); border-color:var(--accent); }
 .data-note { color:var(--muted); }

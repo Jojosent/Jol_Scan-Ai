@@ -396,6 +396,16 @@ Jolserik көмекшісі|ИИ-ассистент Jolserik|Jolserik AI assista
 Jolserik жауап дайындауда…|Jolserik готовит ответ…|Jolserik is preparing a reply…
 Jolserik уақытша қолжетімсіз. Кейінірек қайталаңыз.|Jolserik временно недоступен. Попробуйте позже.|Jolserik is temporarily unavailable. Try again later.
 Файл көлемі {mb} МБ-тан аспауы керек.|Файл должен быть не больше {mb} МБ.|The file must be {mb} MB or smaller.
+Жолдың мекенжайы|Адрес на дороге|Road address
+Табу|Найти|Find
+Картадан көру|Посмотреть на карте|View on map
+Іздеу үшін мекенжайды енгізіңіз.|Введите адрес для поиска.|Enter an address to search.
+Мекенжай ізделуде…|Ищем адрес…|Finding the address…
+Мекенжай табылды. Нүктені картадан тексеріңіз.|Адрес найден. Проверьте точку на карте.|Address found. Confirm the pin on the map.
+Шамамен орны табылды. Картадағы нүктені нақтылаңыз.|Найдено примерное место. Уточните точку на карте.|Approximate location found. Refine the pin on the map.
+Мекенжай табылмады. Нүктені картадан таңдаңыз.|Адрес не найден. Выберите точку на карте.|Address not found. Choose a point on the map.
+Мекенжай іздеу уақытша қолжетімсіз. Картадан нүктені таңдаңыз.|Поиск адреса временно недоступен. Выберите точку на карте.|Address search is unavailable. Choose a point on the map.
+Мекенжай мен мәртебе жалпы картада көрсетіледі.|Адрес и статус будут видны на публичной карте.|The address and status will appear on the public map.
 Үлкен фотолар жүктеу алдында кішірейтіледі.|Большие фото сжимаются перед загрузкой.|Large photos are compressed before upload.
 Ашық көрсетілім: фотокейстер, карта және смета қолжетімді.|Публичное демо: фотокейсы, карта и смета.|Public showcase: photo cases, map and repair estimates.
 estimate_assumptions|Условный расчёт для демонстрации. Площадь получена из доли кадра с опорной площадью 4,5 м². Использованы 120 кг/м², 145 000 ₸/м² и сценарий удорожания в 6 раз. Для наряда подрядчика нужны замеры и актуальные расценки.|Illustrative calculation. Image coverage is scaled to a reference area of 4.5 m². The model uses 120 kg/m², ₸145,000/m² and a 6× deferred-cost scenario. A contractor needs site measurements and current rates.|Көрсетілімге арналған шартты есеп. Кадрдағы үлес 4,5 м² тірек ауданға көбейтіледі. Есепте 120 кг/м², 145 000 ₸/м² және 6 есе қымбаттау сценарийі қолданылады. Мердігерге нақты өлшемдер мен ағымдағы бағалар қажет.

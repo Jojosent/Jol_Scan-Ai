@@ -13,7 +13,7 @@ from app.ai.privacy import sanitize
 from app.localization import LANGUAGES, language, translate
 from app.models import Detection, Report, ReportAuthor, db, utcnow
 from app.routes.accounts import require_admin, require_user
-from app.services.geo import district_for, exif_gps, validate_coordinates
+from app.services.geo import district_for, exif_gps, find_addresses, validate_coordinates
 from app.services.stats import get_stats
 from app.services.report_media import save_photo
 
@@ -237,13 +237,28 @@ def reports():
 
 @bp.get('/map')
 def map_data():
+    records = filtered_reports(demo_only=bool(current_app.config.get('SHOWCASE_ONLY')))
     if g.user and g.user.is_admin:
-        return jsonify(reports=[r.as_dict() for r in filtered_reports()])
+        return jsonify(reports=[record.as_dict() for record in records])
+    # Keep the administrative register and media private.
     points = [
-        {field: getattr(report, field) for field in ('latitude', 'longitude', 'severity')}
-        for report in filtered_reports(demo_only=True)
+        {field: getattr(report, field) for field in
+         ('id', 'latitude', 'longitude', 'severity', 'status', 'address', 'district', 'is_demo')}
+        for report in records
     ]
     return jsonify(reports=points)
+
+
+@bp.get('/geocode')
+def geocode():
+    require_user()
+    query = ' '.join(request.args.get('q', '').split())
+    if not 3 <= len(query) <= 200:
+        abort(400, description='Іздеу үшін мекенжайды енгізіңіз.')
+    try:
+        return jsonify(results=find_addresses(query, current_app.config['GEOCODER_URL']))
+    except (requests.RequestException, ValueError):
+        return jsonify(error=translate('Мекенжай іздеу уақытша қолжетімсіз. Картадан нүктені таңдаңыз.')), 502
 
 
 @bp.get('/stats')
