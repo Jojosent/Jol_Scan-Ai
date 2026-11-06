@@ -7,13 +7,16 @@ import requests
 from PIL import Image
 from app.config import Config
 
+ASTANA_SEARCH_BOUNDS = (71.25, 51.03, 71.63, 51.25)
+
 
 @lru_cache(maxsize=256)
 def find_addresses(query: str, endpoint: str) -> list[dict]:
-    """Search addresses within greater Astana after explicit user submission."""
+    """Search the Astana urban area after explicit user submission."""
+    west, south, east, north = ASTANA_SEARCH_BOUNDS
     response = requests.get(
         endpoint,
-        params={'q': query, 'bbox': '71.15,50.95,71.85,51.4',
+        params={'q': query, 'bbox': ','.join(map(str, ASTANA_SEARCH_BOUNDS)),
                 'lat': 51.1694, 'lon': 71.4491, 'limit': 5},
         headers={'User-Agent': 'JolScanAI/1.0 (+https://jol-scan-ai.vercel.app)'},
         timeout=(4, 8),
@@ -33,7 +36,7 @@ def find_addresses(query: str, endpoint: str) -> list[dict]:
             number = properties.get('housenumber')
         except (KeyError, ValueError, TypeError, AttributeError):
             continue
-        if not street or not (50.95 <= lat <= 51.4 and 71.15 <= lon <= 71.85):
+        if not street or not (south <= lat <= north and west <= lon <= east):
             continue
         address = ' '.join(str(value) for value in (street, number) if value)
         exact = bool(number) and (not house_numbers or str(number).casefold() == house_numbers[-1])

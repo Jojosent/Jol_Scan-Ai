@@ -28,7 +28,7 @@ def test_geocode_prefers_exact_house_in_astana(client, monkeypatch):
             return {'features': [
                 {'geometry': {'coordinates': [71.44, 51.15]}, 'properties': {'street': 'Test Avenue'}},
                 {'geometry': {'coordinates': [71.43, 51.16]}, 'properties': {'street': 'Test Avenue', 'housenumber': '53'}},
-                {'geometry': {'coordinates': [76.9, 43.25]}, 'properties': {'street': 'Test Avenue', 'housenumber': '53'}},
+                {'geometry': {'coordinates': [71.63036, 51.27883]}, 'properties': {'street': 'Test Avenue', 'housenumber': '53'}},
             ]}
 
     def get(url, *, params, **kwargs):
