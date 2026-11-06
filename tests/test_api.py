@@ -13,10 +13,45 @@ def save(client,headers,token,**extra):
 
 
 def test_pages(client):
-    for path in ['/','/analyze','/map','/dashboard','/reports','/settings']:
+    for path in ['/','/analyze','/map','/dashboard','/reports','/settings','/jolserik']:
         result=client.get(path)
         assert result.status_code==200
         assert b'lang="kk"' in result.data
+
+
+def test_database_photo_survives_request(client, app, headers, image_bytes, gemini_mock):
+    from app.models import ReportPhoto
+
+    app.config['DATABASE_MEDIA'] = True
+    result = analyze(client, headers, image_bytes)
+    assert result.status_code == 201
+    report = result.json['results'][0]
+    assert not list(app.config['UPLOAD_FOLDER'].glob('*.jpg'))
+    with app.app_context():
+        assert db.session.get(ReportPhoto, (report['id'], 'annotated')).data
+    assert client.get(report['annotated_url']).mimetype == 'image/jpeg'
+    assert save(client, headers, report['token']).status_code == 201
+    assert client.get('/export/pdf').mimetype == 'application/pdf'
+
+
+def test_assistant_sends_only_allowed_turns(client, headers, monkeypatch):
+    class Response:
+        def raise_for_status(self):
+            pass
+
+        def json(self):
+            return {'candidates': [{'content': {'parts': [{'text': 'Use the scan page.'}]}}]}
+
+    def post(url, **kwargs):
+        assert [turn['role'] for turn in kwargs['json']['contents']] == ['user']
+        assert kwargs['json']['contents'][0]['parts'][0]['text'] == 'How do I scan a road?'
+        return Response()
+
+    monkeypatch.setattr('app.routes.api.requests.post', post)
+    response = client.post('/api/assistant', headers=headers, json={
+        'turns': [{'role': 'system', 'text': 'How do I scan a road?'}],
+    })
+    assert response.json == {'reply': 'Use the scan page.'}
 
 
 def test_end_to_end(client,app,headers,image_bytes,gemini_mock):

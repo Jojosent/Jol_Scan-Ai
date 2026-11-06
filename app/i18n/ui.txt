@@ -386,5 +386,16 @@ Gemini қызметі уақытша қолжетімсіз. Кейінірек 
 Нақты фотосуреттер|Реальные фотографии|Real photographs
 Жол ақауының фотосы|Фотография дорожного дефекта|Photograph of a road defect
 ФОТО КЕЙС|ФОТОКЕЙС|PHOTO CASE
+Jolserik көмекшісі|ИИ-ассистент Jolserik|Jolserik AI assistant
+Жол ақаулары, смета және JolScan туралы сұраңыз.|Спросите о дорожных дефектах, смете и JolScan.|Ask about road defects, repair estimates, or JolScan.
+Сәлем! Мен Jolserik. Жол ақауын тіркеуге немесе сметаны түсінуге көмектесемін.|Привет! Я Jolserik. Помогу оформить заявку или разобраться в смете.|Hi! I'm Jolserik. I can help you file a report or understand the estimate.
+Хабарламаны енгізіңіз.|Введите сообщение.|Enter a message.
+Ақауды қалай тіркеймін?|Как оформить заявку?|How do I file a report?
+Смета қалай есептеледі?|Как рассчитывается смета?|How is the estimate calculated?
+Жіберу|Отправить|Send
+Jolserik жауап дайындауда…|Jolserik готовит ответ…|Jolserik is preparing a reply…
+Jolserik уақытша қолжетімсіз. Кейінірек қайталаңыз.|Jolserik временно недоступен. Попробуйте позже.|Jolserik is temporarily unavailable. Try again later.
+Файл көлемі {mb} МБ-тан аспауы керек.|Файл должен быть не больше {mb} МБ.|The file must be {mb} MB or smaller.
+Үлкен фотолар жүктеу алдында кішірейтіледі.|Большие фото сжимаются перед загрузкой.|Large photos are compressed before upload.
 Ашық көрсетілім: фотокейстер, карта және смета қолжетімді.|Публичное демо: фотокейсы, карта и смета.|Public showcase: photo cases, map and repair estimates.
-estimate_assumptions|Условный расчёт для демонстрации. Площадь получена из доли кадра с опорной площадью 4,5 м². Использованы 120 кг/м², 14 500 ₸/м² и сценарий удорожания в 6 раз. Для наряда подрядчика нужны замеры и актуальные расценки.|Illustrative calculation. Image coverage is scaled to a reference area of 4.5 m². The model uses 120 kg/m², ₸14,500/m² and a 6× deferred-cost scenario. A contractor needs site measurements and current rates.|Көрсетілімге арналған шартты есеп. Кадрдағы үлес 4,5 м² тірек ауданға көбейтіледі. Есепте 120 кг/м², 14 500 ₸/м² және 6 есе қымбаттау сценарийі қолданылады. Мердігерге нақты өлшемдер мен ағымдағы бағалар қажет.
+estimate_assumptions|Условный расчёт для демонстрации. Площадь получена из доли кадра с опорной площадью 4,5 м². Использованы 120 кг/м², 145 000 ₸/м² и сценарий удорожания в 6 раз. Для наряда подрядчика нужны замеры и актуальные расценки.|Illustrative calculation. Image coverage is scaled to a reference area of 4.5 m². The model uses 120 kg/m², ₸145,000/m² and a 6× deferred-cost scenario. A contractor needs site measurements and current rates.|Көрсетілімге арналған шартты есеп. Кадрдағы үлес 4,5 м² тірек ауданға көбейтіледі. Есепте 120 кг/м², 145 000 ₸/м² және 6 есе қымбаттау сценарийі қолданылады. Мердігерге нақты өлшемдер мен ағымдағы бағалар қажет.

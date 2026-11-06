@@ -51,8 +51,7 @@ def seed_demo(with_images: bool = True) -> int:
     if db.session.scalar(db.select(Report.id).where(Report.is_demo.is_(True)).limit(1)):
         return 0
     rng=random.Random(42)
-    from flask import current_app
-    folder=Path(current_app.config['UPLOAD_FOLDER'])
+    from app.services.report_media import save_photo
     for index in range(40):
         district,address,lat,lon=LOCATIONS[index%5]
         level=['HIGH','MEDIUM','LOW','MEDIUM','LOW'][index%5] if index%3 else 'HIGH'
@@ -64,8 +63,8 @@ def seed_demo(with_images: bool = True) -> int:
         report.detections=[Detection(**detection)]
         db.session.add(report);db.session.flush()
         if with_images:
-            image.save(folder/f'{report.token}_original.jpg','JPEG',quality=85)
-            annotate(image,[detection]).save(folder/f'{report.token}_annotated.jpg','JPEG',quality=85)
+            save_photo(report, 'original', image, quality=85)
+            save_photo(report, 'annotated', annotate(image,[detection]), quality=85)
     db.session.commit()
     return 40
 

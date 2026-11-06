@@ -102,7 +102,7 @@ window.JolShowcase = (() => {
       return total + (Number.isFinite(area) && area > 0 && area <= 1 ? area : 0);
     }, 0);
     const area = Math.round(Math.min(ratio, 1) * 450) / 100;
-    const cost = Math.round(area * 14500);
+    const cost = Math.round(area * 145000);
     return {area, weight:area * 120, cost, deferred:cost * 6,
       risk:{HIGH:8.5, MEDIUM:5.5, LOW:2.5, NONE:1}[report.severity]};
   }

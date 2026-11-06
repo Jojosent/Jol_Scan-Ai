@@ -123,7 +123,18 @@ input:focus,select:focus,textarea:focus { outline-color:var(--accent); border-co
 [data-theme=dark] :is(.preset-panel,.estimate-panel,.nav-item.active) { border-color:#7d94f1; }
 [data-theme=dark] :is(.upload-zone,.privacy-note,.result-metric,.settings-card pre,th) { background:var(--panel2); border-color:var(--border); }
 [data-theme=dark] .result-tab.active { border-color:#7d94f1; color:var(--accent); background:#263558; }
-@media (max-width:1080px) {
+.jolserik-layout { display:grid; grid-template-columns:minmax(220px, .75fr) minmax(0, 1.6fr); gap:18px; }
+.jolserik-portrait { display:flex; flex-direction:column; align-items:center; padding:22px; background:radial-gradient(circle at 50% 40%, #546ffe33, transparent 72%),var(--panel); }
+.jolserik-portrait img { display:block; width:min(100%,380px); height:280px; object-fit:contain; }
+.jolserik-portrait strong { font-size:20px; }
+.jolserik-chat { display:flex; flex-direction:column; padding:18px; gap:12px; }
+.chat-log { display:flex; flex-direction:column; gap:10px; min-height:255px; max-height:420px; overflow:auto; }
+.chat-message { width:fit-content; max-width:90%; margin:0; padding:10px 14px; border-radius:12px; color:var(--text); background:var(--panel2); white-space:pre-wrap; overflow-wrap:anywhere; }
+.chat-user { align-self:flex-end; background:#2449de; color:#fff; }
+.chat-prompts,.chat-form { display:flex; flex-wrap:wrap; gap:8px; }
+.chat-form textarea { flex:1 1 220px; min-width:0; resize:vertical; font:inherit; border:1px solid var(--border); background:var(--panel2); color:var(--text); padding:11px; border-radius:8px; }
+.chat-form button { align-self:end; }
+@media (max-width:1170px) {
   .masthead-nav { display:none; }
   .header-identity .mobile-menu { display:inline-grid; place-items:center; }
   .sidebar { display:flex; transform:translateX(-100%); background:var(--panel); transition:transform .22s ease; }
@@ -131,6 +142,8 @@ input:focus,select:focus,textarea:focus { outline-color:var(--accent); border-co
   .sidebar-scrim.open { display:block; position:fixed; inset:0; z-index:1099; background:#14203266; }
 }
 @media (max-width:720px) {
+  .jolserik-layout { grid-template-columns:1fr; }
+  .jolserik-portrait img { height:190px; }
   .topbar { min-height:60px; gap:8px; padding:8px 12px; }
   .header-identity,.topbar-right { gap:7px; }
   .masthead-brand { font-size:20px; gap:6px; }

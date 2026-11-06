@@ -6,7 +6,32 @@ document.addEventListener('DOMContentLoaded',()=>{
   let files=[],results=[],current=0,map=null,marker=null,coordinates=null,busy=false,webcamStream=null;
   const positions=new Map();const addresses=new Map();const urls=[];
   const presets = [...document.querySelectorAll('[data-preset]')];
+  const uploadLimit = Number($('file-input').dataset.limitMb);
+  const isVideo = file => /\.(mp4|webm|mov)$/i.test(file.name);
   let previewUrl;
+
+  async function fitUpload(file) {
+    if (file.size <= uploadLimit * 1024 * 1024) return file;
+    if (isVideo(file)) throw new Error(tr('Файл көлемі {mb} МБ-тан аспауы керек.', {mb:uploadLimit}));
+    const image = await createImageBitmap(file);
+    try {
+      const canvas = document.createElement('canvas');
+      const scale = Math.min(1, 1600 / Math.max(image.width, image.height));
+      canvas.width = Math.max(1, Math.round(image.width * scale));
+      canvas.height = Math.max(1, Math.round(image.height * scale));
+      const drawing = canvas.getContext('2d');
+      drawing.fillStyle = '#fff';
+      drawing.fillRect(0, 0, canvas.width, canvas.height);
+      drawing.drawImage(image, 0, 0, canvas.width, canvas.height);
+      const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/jpeg', .82));
+      if (!blob || blob.size > uploadLimit * 1024 * 1024) {
+        throw new Error(tr('Файл көлемі {mb} МБ-тан аспауы керек.', {mb:uploadLimit}));
+      }
+      return new File([blob], file.name.replace(/\.[^.]+$/, '.jpg'), {type:'image/jpeg'});
+    } finally {
+      image.close();
+    }
+  }
 
   function releasePreview() {
     $('scan-image').removeAttribute('src');
@@ -107,8 +132,13 @@ document.addEventListener('DOMContentLoaded',()=>{
           video:/\.(mp4|webm|mov)$/i.test(files[i].name), frame:i + 1,
         });
         previewUrl = url;
-        const form=new FormData();form.append('file',files[i]);form.append('frame_step',String(step));
-        try{const data=await api('/api/detect',{method:'POST',body:form});data.results.forEach(r=>{r.source=files[i].name;results.push(r);});}
+        try {
+          const form = new FormData();
+          form.append('file', await fitUpload(files[i]));
+          form.append('frame_step', String(step));
+          const data = await api('/api/detect',{method:'POST',body:form});
+          data.results.forEach(result => { result.source=files[i].name; results.push(result); });
+        }
         catch(error){failures++;failedFiles.push(files[i]);toast(`${files[i].name}: ${error.message}`,true);}
       }
       files=failedFiles;

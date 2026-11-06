@@ -81,3 +81,9 @@ class ReportAuthor(db.Model):
     """Связь с автором без изменения таблицы старых заявок."""
     report_id = db.Column(db.Integer, db.ForeignKey('report.id'), primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False, index=True)
+
+
+class ReportPhoto(db.Model):
+    report_id = db.Column(db.Integer, db.ForeignKey('report.id', ondelete='CASCADE'), primary_key=True)
+    kind = db.Column(db.String(12), primary_key=True)
+    data = db.Column(db.LargeBinary, nullable=False)

@@ -1,9 +1,9 @@
 """Страницы казахского интерфейса и обезличенные медиафайлы."""
-from pathlib import Path
 from urllib.parse import urlsplit
 from flask import Blueprint, current_app, g, redirect, render_template, request, send_file, abort, session
 from app.localization import LANGUAGES
 from app.models import Report, db
+from app.services.report_media import read_photo
 
 bp = Blueprint('main', __name__)
 
@@ -35,6 +35,11 @@ def demo():
     return render_template('demo.html', page='demo')
 
 
+@bp.get('/jolserik')
+def jolserik():
+    return render_template('jolserik.html', page='assistant')
+
+
 @bp.post('/preferences')
 def preferences():
     target = request.form.get('return_to', '/')
@@ -42,7 +47,7 @@ def preferences():
         parts = urlsplit(target)
     except ValueError:
         abort(400)
-    routes = {'/', '/analyze', '/map', '/dashboard', '/settings', '/demo', '/admin', '/reports', '/login', '/register', '/profile'}
+    routes = {'/', '/analyze', '/map', '/dashboard', '/settings', '/demo', '/admin', '/reports', '/login', '/register', '/profile', '/jolserik'}
     if target.startswith('//') or '\\' in target or parts.netloc or parts.scheme or parts.path not in routes:
         target = '/'
     response = redirect(target)
@@ -62,7 +67,7 @@ def media(token: str, kind: str):
         abort(404)
     if not (g.user and (g.user.is_admin or report.token in session.get('drafts', []))):
         abort(404)
-    path = Path(current_app.config['UPLOAD_FOLDER']) / f'{report.token}_{kind}.jpg'
-    if not path.is_file():
+    photo = read_photo(report, kind)
+    if photo is None:
         abort(404)
-    return send_file(path, mimetype='image/jpeg')
+    return send_file(photo, mimetype='image/jpeg')

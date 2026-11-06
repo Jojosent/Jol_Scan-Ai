@@ -55,11 +55,12 @@ def build_pdf(reports: list[Report]) -> io.BytesIO:
         table.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,0),colors.HexColor('#1b2530')),('ROWBACKGROUNDS',(0,1),(-1,-1),[colors.HexColor('#f1f4f6'),colors.white]),('VALIGN',(0,0),(-1,-1),'TOP'),('TOPPADDING',(0,0),(-1,-1),9),('BOTTOMPADDING',(0,0),(-1,-1),9),('LINEBELOW',(0,0),(-1,0),2,colors.HexColor('#ffc400'))]))
         story.append(table)
     story.append(Paragraph('Фотоқұжаттар · ең жоғары басымдықтағы учаскелер',heading))
+    from app.services.report_media import read_photo
     thumbs=[]
     for report in top[:6]:
-        path=Path(current_app.config['UPLOAD_FOLDER']) / f'{report.token}_annotated.jpg'
-        if path.is_file():
-            picture=Image(str(path),width=80*mm,height=50*mm,kind='proportional')
+        photo = read_photo(report, 'annotated')
+        if photo is not None:
+            picture=Image(str(photo) if isinstance(photo, Path) else photo,width=80*mm,height=50*mm,kind='proportional')
             caption=Paragraph(f'#{report.id} · {escape(report.district)} · {SEVERITY[report.severity]}' + (' · ДЕМО' if report.is_demo else ''),cell)
             thumbs.append([picture,Spacer(1,2*mm),caption])
     for index in range(0,len(thumbs),2):

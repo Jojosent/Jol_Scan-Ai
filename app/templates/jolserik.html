@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Jolserik{% endblock %}
+{% block content %}
+<section class="page-heading">
+  <div><div class="eyebrow">JOLSCAN AI / 02</div><h1>Jolserik<span class="yellow">.</span></h1>
+    <p>{{ tr('Жол ақаулары, смета және JolScan туралы сұраңыз.') }}</p></div>
+</section>
+<div class="jolserik-layout">
+  <aside class="panel jolserik-portrait">
+    <span class="eyebrow">SMART CITY / ASTANA</span>
+    <img src="{{ url_for('static', filename='img/jolserik.png') }}" alt="Jolserik">
+    <strong>{{ t('nav_assistant') }}</strong>
+    <p>Gemini · KK / RU / EN</p>
+  </aside>
+  <section class="panel jolserik-chat">
+    <div id="chat-log" class="chat-log" role="log" aria-live="polite">
+      <p class="chat-message chat-model">{{ tr('Сәлем! Мен Jolserik. Жол ақауын тіркеуге немесе сметаны түсінуге көмектесемін.') }}</p>
+    </div>
+    {% if g.user and ai_ready and not showcase_only %}
+    <div class="chat-prompts">
+      {% for prompt in ['Ақауды қалай тіркеймін?', 'Смета қалай есептеледі?'] %}
+      <button type="button" class="button secondary small" data-chat-prompt="{{ tr(prompt) }}">{{ tr(prompt) }}</button>
+      {% endfor %}
+    </div>
+    <form id="chat-form" class="chat-form">
+      <label class="sr-only" for="chat-input">{{ tr('Хабарламаны енгізіңіз.') }}</label>
+      <textarea id="chat-input" maxlength="2000" rows="2" required placeholder="{{ tr('Хабарламаны енгізіңіз.') }}"></textarea>
+      <button type="submit" class="button primary">{{ tr('Жіберу') }} {{ icon('arrow',16) }}</button>
+    </form>
+    {% elif not g.user and not showcase_only %}
+      <a class="button primary" href="/login?next=/jolserik">{{ t('nav_login') }}</a>
+    {% else %}
+      <p class="muted">{{ tr('Jolserik уақытша қолжетімсіз. Кейінірек қайталаңыз.') }}</p>
+    {% endif %}
+  </section>
+</div>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static',filename='js/jolserik.js') }}" defer></script>{% endblock %}

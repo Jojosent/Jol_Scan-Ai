@@ -30,9 +30,16 @@ def create_app(test_config: dict | None = None) -> Flask:
     app.register_blueprint(dashboard)
     app.register_blueprint(accounts)
     with app.app_context():
-        db.create_all()
+        if db.engine.dialect.name == 'postgresql':
+            from sqlalchemy import text
+            with db.engine.begin() as connection:
+                connection.execute(text('SELECT pg_advisory_xact_lock(71420301)'))
+                db.metadata.create_all(connection)
+        else:
+            db.create_all()
     translations = json.loads((Path(__file__).parent / 'i18n/kk.json').read_text(encoding='utf-8'))
     translations.update(nav_demo='Көрсетілім', nav_login='Кіру', nav_register='Тіркелу', nav_profile='Профиль', nav_error='Қате')
+    translations['nav_assistant'] = 'Jolserik көмекшісі'
 
     @app.before_request
     def protect_mutations():
@@ -54,6 +61,7 @@ def create_app(test_config: dict | None = None) -> Flask:
         return {'t': lambda key: translate(translations.get(key, key)), 'tr': translate,
                 'language': language(), 'client_catalog': CATALOG[language()],
                 'carto_key': app.config['CARTO_BASEMAP_KEY'], 'showcase_only': app.config.get('SHOWCASE_ONLY', False),
+                'upload_limit_mb': app.config.get('UPLOAD_LIMIT_MB', 15),
                 'theme': 'dark' if request.cookies.get('jolscan_theme') == 'dark' else 'light',
                 'csrf_token': session['csrf_token'],
                 'ai_ready': bool(app.config['GEMINI_API_KEY']), 'gemini_model': app.config['GEMINI_MODEL']}
@@ -61,6 +69,9 @@ def create_app(test_config: dict | None = None) -> Flask:
     @app.errorhandler(HTTPException)
     def http_error(error):
         if request.path.startswith('/api/'):
+            if error.code == 413 and app.config.get('UPLOAD_LIMIT_MB'):
+                message = translate('Файл көлемі {mb} МБ-тан аспауы керек.')
+                return jsonify(error=message.format(mb=app.config['UPLOAD_LIMIT_MB'])), 413
             message = translations['too_large'] if error.code == 413 else translations.get(f'error_{error.code}', error.description)
             return jsonify(error=translate(message)), error.code
         from flask import render_template

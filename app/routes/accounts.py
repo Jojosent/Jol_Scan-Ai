@@ -47,7 +47,7 @@ def page_login(view):
 def login():
     registering = request.path == '/register'
     next_page = request.args.get('next', '')
-    if next_page not in {'/admin', '/analyze', '/profile'}:
+    if next_page not in {'/admin', '/analyze', '/profile', '/jolserik'}:
         next_page = '/'
     error = ''
     email = ''

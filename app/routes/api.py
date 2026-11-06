@@ -2,6 +2,7 @@
 import io
 import math
 import tempfile
+import requests
 from datetime import datetime, timedelta
 from pathlib import Path
 import cv2
@@ -9,11 +10,12 @@ from PIL import Image, UnidentifiedImageError
 from flask import Blueprint, abort, current_app, g, jsonify, request, session
 from app.ai.detector import DetectorError, annotate, detect
 from app.ai.privacy import sanitize
-from app.localization import translate
+from app.localization import LANGUAGES, language, translate
 from app.models import Detection, Report, ReportAuthor, db, utcnow
 from app.routes.accounts import require_admin, require_user
 from app.services.geo import district_for, exif_gps, validate_coordinates
 from app.services.stats import get_stats
+from app.services.report_media import save_photo
 
 bp = Blueprint('api', __name__, url_prefix='/api')
 
@@ -62,6 +64,51 @@ def health():
     return jsonify(status='ok', ai_ready=bool(current_app.config['GEMINI_API_KEY']), model=current_app.config['GEMINI_MODEL'])
 
 
+@bp.post('/assistant')
+def assistant():
+    require_user()
+    data = request.get_json(silent=True)
+    turns = data.get('turns') if isinstance(data, dict) else None
+    if not isinstance(turns, list) or not 1 <= len(turns) <= 9 or len(turns) % 2 == 0:
+        abort(400, description='Хабарламаны енгізіңіз.')
+    contents = []
+    for index, turn in enumerate(turns):
+        role = 'user' if index % 2 == 0 else 'model'
+        message = turn.get('text') if isinstance(turn, dict) else None
+        limit = 2000 if role == 'user' else 6000
+        if not isinstance(message, str) or not 1 <= len(message.strip()) <= limit:
+            abort(400, description='Хабарламаны енгізіңіз.')
+        contents.append({'role': role, 'parts': [{'text': message.strip()}]})
+
+    key = current_app.config['GEMINI_API_KEY']
+    model = current_app.config['GEMINI_MODEL']
+    unavailable = translate('Jolserik уақытша қолжетімсіз. Кейінірек қайталаңыз.')
+    if not key or not model or not all(ch.isalnum() or ch in '.-_' for ch in model):
+        return jsonify(error=unavailable), 503
+    instruction = (
+        'You are Jolserik, the JolScan AI road inspection assistant. Help with road damage, '
+        'safe photo uploads, using the site, and understanding the illustrative repair estimate. '
+        'Do not claim to access reports, submit tickets, or assess a road without evidence. '
+        f'Reply in {LANGUAGES[language()]}, in plain text, concisely.'
+    )
+    try:
+        response = requests.post(
+            f'https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent',
+            headers={'x-goog-api-key': key},
+            json={'systemInstruction': {'parts': [{'text': instruction}]}, 'contents': contents,
+                  'generationConfig': {'maxOutputTokens': 1000}},
+            timeout=(8, 45),
+        )
+        response.raise_for_status()
+        parts = response.json()['candidates'][0]['content']['parts']
+        reply = ''.join(part.get('text', '') for part in parts if not part.get('thought')).strip()
+    except (requests.RequestException, KeyError, IndexError, TypeError, ValueError):
+        return jsonify(error=unavailable), 502
+    if not reply:
+        return jsonify(error=unavailable), 502
+    return jsonify(reply=reply[:6000])
+
+
 def store_analysis(image: Image.Image, gps: tuple | None, second: float | None = None) -> Report:
     clean = sanitize(image)
     result = detect(clean)
@@ -74,9 +121,8 @@ def store_analysis(image: Image.Image, gps: tuple | None, second: float | None =
     report.detections = [Detection(**d) for d in result['detections']]
     db.session.add(report)
     db.session.flush()
-    folder = Path(current_app.config['UPLOAD_FOLDER'])
-    clean.save(folder / f'{report.token}_original.jpg', 'JPEG', quality=90)
-    annotate(clean, result['detections']).save(folder / f'{report.token}_annotated.jpg', 'JPEG', quality=90)
+    save_photo(report, 'original', clean)
+    save_photo(report, 'annotated', annotate(clean, result['detections']))
     return report
 
 

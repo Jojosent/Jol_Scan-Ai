@@ -28,7 +28,7 @@
     <button class="city-switch" type="button" title="{{ tr('Қамтылатын қала: Астана') }}"><span class="city-icon">{{ icon('pin',18) }}</span><span><small>{{ t('city_label') }}</small>{{ t('city') }}</span><span class="city-dot"></span></button>
     <p class="nav-label">{{ t('workspace') }}</p>
     <nav aria-label="{{ tr('Негізгі навигация') }}">
-      {% for key, href, symbol in [('home','/','grid'),('analyze','/analyze','scan'),('map','/map','map'),('dashboard','/dashboard','chart'),('demo','/demo','spark')] %}
+      {% for key, href, symbol in [('home','/','grid'),('analyze','/analyze','scan'),('map','/map','map'),('dashboard','/dashboard','chart'),('demo','/demo','spark'),('assistant','/jolserik','spark')] %}
       <a href="{{ href }}" class="nav-item {{ 'active' if page==key else '' }}" {% if page==key %}aria-current="page"{% endif %}>{{ icon(symbol) }}<span>{{ t('nav_'+key) }}</span></a>
       {% endfor %}
     </nav>
@@ -45,7 +45,7 @@
         <a class="brand masthead-brand" href="/" aria-label="{{ tr('JolScan AI басты бет') }}"><span class="brand-mark">{{ icon('road',21) }}</span><span>JolScan<span class="brand-ai">.</span></span></a>
       </div>
       <nav class="masthead-nav" aria-label="{{ tr('Негізгі навигация') }}">
-        {% for key, href in [('home','/'),('analyze','/analyze'),('map','/map'),('dashboard','/dashboard'),('demo','/demo'),('settings','/settings')] %}
+        {% for key, href in [('home','/'),('analyze','/analyze'),('map','/map'),('dashboard','/dashboard'),('demo','/demo'),('assistant','/jolserik'),('settings','/settings')] %}
         <a href="{{ href }}" {% if page==key %}aria-current="page"{% endif %}>{{ t('nav_'+key) }}</a>
         {% endfor %}
       </nav>
